@@ -40,6 +40,8 @@ Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najk
 
 # Plan godzinowy na kwiecień (80 godzin)
 Dzień - Czas trwania - Przedział godzinowy
+* 16.04.2024 - 8h - 10:00 - 18:00;
+* 17.04.2024 - 8h - 10:00 - 18:00;
 * 18.04.2024 - 4h - 20:30 - 00:30;
 * 19.04.2024 - 4h - 20:30 - 00:30;
 * 20.04.2024 - 6h - 18:00 - 00:00;
