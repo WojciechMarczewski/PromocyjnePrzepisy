@@ -1,7 +1,7 @@
 # PromocyjnePrzepisy
 ## Aplikacja mobilna rekomendująca przepisy kulinarne na podstawie aktualnych promocji w supermarketach.
 
-
+## Repozytorium dotyczy aplikacji klienckiej
 
 ### Przykładowe funkcjonalności:
 Przeglądanie dań z przecenionymi produktami (użytkownik widzi w liście nazwę dania, zdjęcie dania oraz ilość produktów w promocji zawartych w daniu).
