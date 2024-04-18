@@ -1,7 +1,8 @@
 # PromocyjnePrzepisy
 ## Aplikacja mobilna rekomendująca przepisy kulinarne na podstawie aktualnych promocji w supermarketach.
 
-## Repozytorium dotyczy aplikacji klienckiej, która będzie działać jedynie na Androidzie (nie mam urządzeń z system iOS).
+## Repozytorium dotyczy aplikacji klienckiej, która będzie działać jedynie na Androidzie (nie mam urządzeń z system iOS do testowania aplikacji).
+Link do mockupu figmy (praca w toku): [LINK](https://www.figma.com/file/tv9aa3ogYHgB75HspjybIR/PromocyjnePrzepisy?type=design&node-id=5%3A2&mode=design&t=2HFiYLqctx7OHkHO-1)
 
 ### Przykładowe funkcjonalności:
 Przeglądanie dań z przecenionymi produktami (użytkownik widzi w liście nazwę dania, zdjęcie dania oraz ilość produktów w promocji zawartych w daniu).
