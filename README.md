@@ -22,7 +22,7 @@ Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najk
 * Mikroserwis do przetwarzania propozycji zakupowych (logika biznesowa) na podstawie informacji wyciągniętych z bazy danych.
 * Baza danych MySQL dla przechowywania gotowych propozycji zakupowych dla głównej strony aplikacji.
 * ASP .NET web API do komunikacji między serwisami.
-Inne nieokreślone przez brak doświadczenia/wiedzy/wyobraźni - w tej chwili nie uwzględniam na przykład tworzenia użytkowników w aplikacji.
+* Inne nieokreślone przez brak doświadczenia/wiedzy/wyobraźni - w tej chwili nie uwzględniam na przykład tworzenia użytkowników w aplikacji.
 
 ## Najbliższe działania:
 1. Stworzenie prostego mockupu interfejsu użytkownika w figmie.
