@@ -37,4 +37,20 @@ Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najk
 ## Wykonane:
 * Przygotowanie środowiska pracy - stworzenie projektu aplikacji w Visual Studio
 * Inicjalizacja repozytorium systemu kontroli wersji
-  
+
+# Plan godzinowy na kwiecień (80 godzin)
+Dzień - Czas trwania - Przedział godzinowy
+18.04.2024 - 4h - 20:30 - 00:30;
+19.04.2024 - 4h - 20:30 - 00:30;
+20.04.2024 - 6h - 18:00 - 00:00;
+21.04.2024 - 6h - 18:00 - 00:00;
+22.04.2024 - 4h - 20:30 - 00:30;
+23.04.2024 - 4h - 20:30 - 00:30;
+24.04.2024 - 4h - 20:30 - 00:30;
+25.04.2024 - 4h - 20:30 - 00:30;
+26.04.2024 - 4h - 20:30 - 00:30;
+27.04.2024 - 8h - 10:00 - 18:00;
+28.04.2024 - 8h - 10:00 - 18:00;
+29.04.2024 - 8h - 10:00 - 18:00;
+30.04.2024 - 8h - 10:00 - 18:00;
+Notatka: 8h godzin jest nadmiarowe, więc prawdopodobnie 2 dni po 4h będą odjęte, albo zredukuje się czas 4 godzinnych aktywności do 3 godzin. Dni z 8 godzinami to dni wolne od pracy, weekend 6h jest dniem zjazdowym na uczelni.
