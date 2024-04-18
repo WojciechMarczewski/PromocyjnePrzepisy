@@ -7,11 +7,11 @@ Link do mockupu w figmie (praca w toku): [LINK](https://www.figma.com/file/tv9aa
 Link do dziennika praktyk: [LINK](https://docs.google.com/document/d/1p0ktWxdgcmvHCz7Zp5gDIfEQv0BLz8xe/edit?usp=sharing&ouid=102039872799773985673&rtpof=true&sd=true)
 
 ### Przykładowe funkcjonalności:
-Przeglądanie dań z przecenionymi produktami (użytkownik widzi w liście nazwę dania, zdjęcie dania oraz ilość produktów w promocji zawartych w daniu).
-Filtrowanie propozycji po rodzaju supermarketu, rodzaju produktu/ów czy preferencji żywieniowych(wegańskie, wegeteriańskie).
-Generowanie listy zakupów na podstawie wybranego przepisu.
-Podgląd dania wraz z przepisem oraz konkretnymi produktami w przecenie.
-Dodawanie cen zakupionych produktów na podstawie skanu paragonu lub ręcznym wprowadzeniu ceny (działanie nieobowiązkowe dla użytkownika, ale ułatwiające określanie całkowitej ceny dania dla innych użytkowników).
+* Przeglądanie dań z przecenionymi produktami (użytkownik widzi w liście nazwę dania, zdjęcie dania oraz ilość produktów w promocji zawartych w daniu).
+* Filtrowanie propozycji po rodzaju supermarketu, rodzaju produktu/ów czy preferencji żywieniowych(wegańskie, wegeteriańskie).
+* Generowanie listy zakupów na podstawie wybranego przepisu.
+* Podgląd dania wraz z przepisem oraz konkretnymi produktami w przecenie.
+* Dodawanie cen zakupionych produktów na podstawie skanu paragonu lub ręcznym wprowadzeniu ceny (działanie nieobowiązkowe dla użytkownika, ale ułatwiające określanie całkowitej ceny dania dla innych użytkowników).
 
 ### Podstawowy cel stworzenia aplikacji:
 Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najkorzystniejsze cenowo w danym czasie (pobudki ekonomiczne)
