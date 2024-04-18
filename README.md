@@ -2,7 +2,7 @@
 ## Aplikacja mobilna rekomendująca przepisy kulinarne na podstawie aktualnych promocji w supermarketach.
 
 ## Repozytorium dotyczy aplikacji klienckiej, która będzie działać jedynie na Androidzie (nie mam urządzeń z system iOS do testowania aplikacji).
-Link do mockupu figmy (praca w toku): [LINK](https://www.figma.com/file/tv9aa3ogYHgB75HspjybIR/PromocyjnePrzepisy?type=design&node-id=5%3A2&mode=design&t=2HFiYLqctx7OHkHO-1) 
+Link do mockupu w figmie (praca w toku): [LINK](https://www.figma.com/file/tv9aa3ogYHgB75HspjybIR/PromocyjnePrzepisy?type=design&node-id=5%3A2&mode=design&t=2HFiYLqctx7OHkHO-1) 
 
 Link do dziennika praktyk: [LINK](https://docs.google.com/document/d/1p0ktWxdgcmvHCz7Zp5gDIfEQv0BLz8xe/edit?usp=sharing&ouid=102039872799773985673&rtpof=true&sd=true)
 
