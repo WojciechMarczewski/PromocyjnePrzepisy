@@ -6,6 +6,9 @@ Link do mockupu w figmie (praca w toku): [LINK](https://www.figma.com/file/tv9aa
 
 Link do dziennika praktyk: [LINK](https://docs.google.com/document/d/1p0ktWxdgcmvHCz7Zp5gDIfEQv0BLz8xe/edit?usp=sharing&ouid=102039872799773985673&rtpof=true&sd=true)
 
+## Środowisko deweloperskie:
+Visual Studio 2022 Community Edition, Framework .Net MAUI (Muli-platform app UI), Projekt testów jednostkowych xUnit, GIT.
+
 ### Przykładowe funkcjonalności:
 * Przeglądanie dań z przecenionymi produktami (użytkownik widzi w liście nazwę dania, zdjęcie dania oraz ilość produktów w promocji zawartych w daniu).
 * Filtrowanie propozycji po rodzaju supermarketu, rodzaju produktu/ów czy preferencji żywieniowych(wegańskie, wegeteriańskie).
