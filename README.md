@@ -1,7 +1,7 @@
 # PromocyjnePrzepisy
 ## Aplikacja mobilna rekomendująca przepisy kulinarne na podstawie aktualnych promocji w supermarketach.
 
-## Repozytorium dotyczy aplikacji klienckiej
+## Repozytorium dotyczy aplikacji klienckiej, która będzie działać jedynie na Androidzie (nie mam urządzeń z system iOS).
 
 ### Przykładowe funkcjonalności:
 Przeglądanie dań z przecenionymi produktami (użytkownik widzi w liście nazwę dania, zdjęcie dania oraz ilość produktów w promocji zawartych w daniu).
@@ -22,3 +22,12 @@ Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najk
 * Baza danych MySQL dla przechowywania gotowych propozycji zakupowych dla głównej strony aplikacji.
 * ASP .NET web API do komunikacji między serwisami.
 Inne nieokreślone przez brak doświadczenia/wiedzy/wyobraźni - w tej chwili nie uwzględniam na przykład tworzenia użytkowników w aplikacji.
+
+## Najbliższe działania:
+1. Stworzenie prostego mockupu interfejsu użytkownika w figmie.
+2. Implementacja widoków na podstawie mockupu.
+
+## Wykonane:
+* Przygotowanie środowiska pracy - stworzenie projektu aplikacji w Visual Studio
+* Inicjalizacja systemu kontroli wersji
+  
