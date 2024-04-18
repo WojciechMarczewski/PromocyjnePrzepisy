@@ -53,4 +53,5 @@ Dzień - Czas trwania - Przedział godzinowy
 * 28.04.2024 - 8h - 10:00 - 18:00;
 * 29.04.2024 - 8h - 10:00 - 18:00;
 * 30.04.2024 - 8h - 10:00 - 18:00;
-Notatka: 8h godzin jest nadmiarowe, więc prawdopodobnie 2 dni po 4h będą odjęte, albo zredukuje się czas 4 godzinnych aktywności do 3 godzin. Dni z 8 godzinami to dni wolne od pracy, weekend 6h jest dniem zjazdowym na uczelni.
+
+Notatka: W dniach 16.04 i 17.04 jest zapisane 16h w ramach zapoznawania się z przedsiębiorstwem (zobacz Dziennik Praktyk), więc odejmując to od zaplanowanych godzin zostaje 64h. W planie sumarycznie jest 72h, więc 8h godzin jest nadmiarowe - prawdopodobnie 2 dni po 4h będą odjęte, albo zredukuje się czas 4 godzinnych aktywności do 3 godzin. Dni z 8 godzinami to dni wolne od pracy, weekend 6h jest dniem zjazdowym na uczelni.
