@@ -29,6 +29,7 @@ Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najk
 ## Najbliższe działania:
 1. Stworzenie prostego mockupu interfejsu użytkownika w figmie.
 2. Implementacja widoków na podstawie mockupu.
+3. Stworzenie historyjek użytkownika (przesada?)
 
 ## Wykonane:
 * Przygotowanie środowiska pracy - stworzenie projektu aplikacji w Visual Studio
