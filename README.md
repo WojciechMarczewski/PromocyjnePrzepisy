@@ -30,5 +30,5 @@ Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najk
 
 ## Wykonane:
 * Przygotowanie środowiska pracy - stworzenie projektu aplikacji w Visual Studio
-* Inicjalizacja systemu kontroli wersji
+* Inicjalizacja repozytorium systemu kontroli wersji
   
