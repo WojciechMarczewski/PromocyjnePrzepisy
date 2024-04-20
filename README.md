@@ -2,7 +2,11 @@
 ## Aplikacja mobilna rekomendująca przepisy kulinarne na podstawie aktualnych promocji w supermarketach.
 
 ## Repozytorium dotyczy aplikacji klienckiej, która będzie działać jedynie na Androidzie (nie mam urządzeń z system iOS do testowania aplikacji).
-Link do mockupu w figmie (praca w toku): [LINK](https://www.figma.com/file/tv9aa3ogYHgB75HspjybIR/PromocyjnePrzepisy?type=design&node-id=5%3A2&mode=design&t=2HFiYLqctx7OHkHO-1) 
+
+> [!NOTE]
+> Link do mockupu w figmie (pierwsze podejście ukończone): [LINK](https://www.figma.com/proto/tv9aa3ogYHgB75HspjybIR/PromocyjnePrzepisy?type=design&node-id=15-854&t=vu8W7AjkR3wcEZRC-1&scaling=contain&page-id=0%3A1)
+> 
+> Jestem otwarty na sugestie, krytykę itp.
 
 Link do dziennika praktyk: [LINK](https://docs.google.com/document/d/1WVQkgTRC11jlCx_qyGrfYsIaDCmFzqLI/edit?usp=sharing&ouid=102039872799773985673&rtpof=true&sd=true)
 
@@ -30,13 +34,13 @@ Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najk
 * Inne nieokreślone przez brak doświadczenia/wiedzy/wyobraźni - w tej chwili nie uwzględniam na przykład tworzenia użytkowników w aplikacji.
 
 ## Najbliższe działania:
-1. Stworzenie prostego mockupu interfejsu użytkownika w figmie - pozwoli to łatwiej i szybciej określić zależności między widokami, jak też niedociągnięcia w planowaniu interfejsu użytkownika
-2. Implementacja widoków na podstawie mockupu.
-3. Stworzenie historyjek użytkownika (przesada?) - jasne określenie jakie funkcjonalności będzie zawierała aplikacja
+1. Implementacja widoków na podstawie mockupu.
+2. Stworzenie historyjek użytkownika (przesada?) - jasne określenie jakie funkcjonalności będzie zawierała aplikacja
 
 ## Wykonane:
 * Przygotowanie środowiska pracy - stworzenie projektu aplikacji w Visual Studio
 * Inicjalizacja repozytorium systemu kontroli wersji
+* Stworzenie prostego mockupu interfejsu użytkownika w figmie
 
 # Plan godzinowy na kwiecień (80 godzin)
 Dzień - Czas trwania - Przedział godzinowy
