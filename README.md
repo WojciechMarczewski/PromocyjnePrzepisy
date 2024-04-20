@@ -38,7 +38,7 @@ Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najk
 
 ## Najbliższe działania:
 1. Implementacja widoków na podstawie mockupu.
-2. Stworzenie historyjek użytkownika (przesada?) - jasne określenie jakie funkcjonalności będzie zawierała aplikacja
+2. Stworzenie historyjek użytkownika (przesada?) - jasne określenie jakie funkcjonalności będzie zawierała aplikacja (W Toku - historyjki w projekcie w Jira)
 
 ## Wykonane:
 * Przygotowanie środowiska pracy - stworzenie projektu aplikacji w Visual Studio
