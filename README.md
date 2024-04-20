@@ -8,6 +8,9 @@
 > 
 > Jestem otwarty na sugestie, krytykę itp.
 
+> [!NOTE]
+> Projekt Jiry do zarządzania projektem: [LINK](https://id.atlassian.com/invite/p/jira-software?id=W-agM5jUQsSYHxT5gt3NzQ)
+
 Link do dziennika praktyk: [LINK](https://docs.google.com/document/d/1WVQkgTRC11jlCx_qyGrfYsIaDCmFzqLI/edit?usp=sharing&ouid=102039872799773985673&rtpof=true&sd=true)
 
 ## Środowisko deweloperskie:
