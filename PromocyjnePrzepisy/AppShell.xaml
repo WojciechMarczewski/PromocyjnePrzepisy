@@ -8,8 +8,15 @@
     Title="PromocyjnePrzepisy">
 
     <ShellContent
-        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+        Route="MainPage" 
+        />
+    <Shell.TitleView >
+        <Grid ColumnDefinitions="40, *, 40" >
+            <Label Grid.Column="1" Text="Promocyjne Przepisy" HorizontalOptions="Center" FontSize="30"/>
+            <Button Text="NavBtn" HeightRequest="40"
+                    WidthRequest="40" Grid.Column ="2"  HorizontalOptions="End" VerticalOptions="Start"/>
+        </Grid>
+    </Shell.TitleView>
+    
 </Shell>

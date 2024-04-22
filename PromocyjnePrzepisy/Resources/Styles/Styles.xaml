@@ -25,7 +25,17 @@
 
     <Style TargetType="Button">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource PrimaryDarkText}}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
+       <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"-->
+        <!--<Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush  StartPoint="0,0" EndPoint="0,0">
+                    <GradientStop Offset="0.0" Color="#A8D584"/>
+                    <GradientStop Offset="1.0" Color="#B56464" />
+                    <GradientStop Offset="0.5" Color="#937777"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>-->
+        <Setter Property="Background" Value="{StaticResource ButtonBrush}"/>
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="BorderWidth" Value="0"/>
