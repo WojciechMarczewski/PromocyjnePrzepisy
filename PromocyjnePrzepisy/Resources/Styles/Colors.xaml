@@ -28,16 +28,19 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
     <Color x:Key="LightCreme">#F0E7E7</Color>
-    <Color x:Key="LigthCreme2">#FDE8D5</Color>
+    <Color x:Key="LightCreme2">#FDE8D5</Color>
 
-
+    <Color x:Key="DarkOrange">#FFC085</Color>
     <LinearGradientBrush x:Key="ButtonBrush" StartPoint="0,0" EndPoint="1,0">
         <GradientStop Offset="0.0" Color="#80A8D584"/>
         <GradientStop Offset="0.0" Color="#CACACA"/>
         <GradientStop Offset="1.0" Color="#80B56464" />
         <GradientStop Offset="1.0" Color="#937777"/>
     </LinearGradientBrush>
-    
+    <LinearGradientBrush x:Key="BackgroundBrush" >
+        <GradientStop Offset="0.0" Color="{StaticResource LightCreme}" />
+        <GradientStop Offset="1.0" Color="{StaticResource LightCreme2}"/>
+    </LinearGradientBrush>
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>

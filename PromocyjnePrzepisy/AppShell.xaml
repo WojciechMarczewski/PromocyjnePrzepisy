@@ -4,19 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:PromocyjnePrzepisy"
+    xmlns:views="clr-namespace:PromocyjnePrzepisy.Views"
     Shell.FlyoutBehavior="Disabled"
-    Title="PromocyjnePrzepisy">
+    Title="PromocyjnePrzepisy" Background="Transparent">
 
     <ShellContent
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" 
         />
+    <ShellContent 
+    ContentTemplate="{DataTemplate views:RecipePage}" 
+    Route="RecipePage"/>
     <Shell.TitleView >
-        <Grid ColumnDefinitions="40, *, 40" >
+        <Grid ColumnDefinitions="40, *, 40"  Background="#FFC085">
+            <Label Grid.Column="0"/>
             <Label Grid.Column="1" Text="Promocyjne Przepisy" HorizontalOptions="Center" FontSize="30"/>
             <Button Text="NavBtn" HeightRequest="40"
                     WidthRequest="40" Grid.Column ="2"  HorizontalOptions="End" VerticalOptions="Start"/>
-        </Grid>
+        </Grid> 
     </Shell.TitleView>
     
+
 </Shell>

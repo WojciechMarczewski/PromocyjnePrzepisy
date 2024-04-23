@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="PromocyjnePrzepisy.Views.RecipePage"
+Title="RecipePage" Background="{StaticResource BackgroundBrush}">
+    <ContentPage.Resources>
+        <x:Array x:Key="Items" Type="{x:Type x:String}" >
+            <x:String>Nazwa Produktu</x:String>
+            <x:String>Nazwa Produktu</x:String>
+            <x:String>Nazwa Produktu</x:String>
+            <x:String>Nazwa Produktu</x:String>
+            <x:String>Nazwa Produktu</x:String>
+            <x:String>Nazwa Produktu</x:String>
+            <x:String>Nazwa Produktu</x:String>
+        </x:Array>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+
+        <Image HeightRequest="100" >
+
+            <Image.Source>
+                <FileImageSource File="./Resources/Images/dotnet_bot.png"/>
+            </Image.Source>
+        </Image>
+        <Label Text="Nazwa przepisu" Style="{StaticResource RecipeNameStyle}"/>
+        <Label Text="Składniki:" Style="{StaticResource RecipeInfoLabel}"/>
+        <CollectionView ItemsSource="{StaticResource Items}" Margin="5, 5, 10, 5" >
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout VerticalItemSpacing="2" Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate >
+                    <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" StrokeThickness="2">
+                        <!--<Border.Shadow>
+                            <Shadow Brush="Black" Offset="10, 10" Opacity="0.8" Radius="40"/>
+                        </Border.Shadow>-->
+                        <Grid>
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding .}" HorizontalOptions="Start" Margin="10, 0, 0, 0" Grid.Column="0"/>
+                            <Label Text="%" TextColor="OrangeRed" Grid.Column="1" HorizontalOptions="End" Margin="0, 0, 10, 0"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Text="Przepis:" Style="{StaticResource RecipeInfoLabel}"/>
+        <Border Margin="10,0" StrokeThickness="2" StrokeShape="RoundRectangle 5" >
+            <!--<Border.Shadow>
+                <Shadow Brush="Black" Opacity="0.5" Offset="10, 10"  Radius="20"/>
+            </Border.Shadow>-->
+        <Label Text="Treść przepisu" BackgroundColor="{StaticResource  White}"  
+               VerticalOptions="FillAndExpand"  />
+        </Border>
+        <!--<Entry></Entry> to make text copyable -->
+    </VerticalStackLayout>
+</ContentPage>
