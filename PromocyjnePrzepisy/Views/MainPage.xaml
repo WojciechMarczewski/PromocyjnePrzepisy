@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PromocyjnePrzepisy.MainPage" Background="{StaticResource BackgroundBrush }">
+             x:Class="PromocyjnePrzepisy.MainPage" Background="{StaticResource BackgroundBrush }"
+             xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels" NavigationPage.HasBackButton="False">
     <ContentPage.Resources>
-        <x:Array x:Key="StaticData" Type="{x:Type x:String}">
-            <x:String>Sałatka z kurczakiem</x:String>
-            <x:String>Sałatka z kurczakiem</x:String>
-            <x:String>Sałatka z kurczakiem</x:String>
-            <x:String>Sałatka z kurczakiem</x:String>
+        <x:Array x:Key="StaticData" Type="{x:Type vm:CollectionViewItem}">
+            <vm:CollectionViewItem Text="Przepis 1" Source="/Resources/Images/image_1.jpg" DiscountsCount="2" />
+            <vm:CollectionViewItem Text="Przepis 2" Source="/Resources/Images/image_2.jpg" DiscountsCount="1"/>
+            <vm:CollectionViewItem Text="Przepis 3" Source="/Resources/Images/image_3.jpg" DiscountsCount="1"/>
         </x:Array>
+       
     </ContentPage.Resources>
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <ScrollView Orientation="Horizontal">
-            <HorizontalStackLayout  Spacing="5" >
+        <VerticalStackLayout Margin="5, 5, 5, 5"
+            Spacing="20">
+            <ScrollView Orientation="Horizontal" HorizontalOptions="Center" >
+            <HorizontalStackLayout  Spacing="5"  HeightRequest="40" VerticalOptions="Start">
                 <Button Text="Wszystko"/>
                     <Button Text="Biedronka"/>
                     <Button Text="Lidl"/>
@@ -25,19 +25,35 @@
                     <Button Text="Mięsne"/>
                 </HorizontalStackLayout>
             </ScrollView>
-            <CollectionView ItemsSource="{StaticResource StaticData}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate >
-                        <ContentView>
-                        <StackLayout>
-                        <Label Text="{Binding .}" FontSize="16"/>
-                        <Image>
-                            <Image.Source>
-                                <FileImageSource File="Resources/Images/dotnet_bot.png"/>
-                            </Image.Source>
-                        </Image>
-                        </StackLayout>
-                        </ContentView>
+            <CollectionView  ItemsSource="{StaticResource StaticData}"  >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout VerticalItemSpacing="6" Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.Shadow>
+                    <Shadow Brush="Black" Opacity="0.4" Radius="5" Offset="5, 5">
+                        
+                    </Shadow>
+                </CollectionView.Shadow>
+                <CollectionView.ItemTemplate >
+                    <DataTemplate x:DataType="vm:CollectionViewItem">
+                        <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" Padding="5">
+                            <StackLayout>
+                                <Label Style="{StaticResource RecipeNameStyle}" Text="{Binding Text }" FontSize="16"/>
+                                <Border StrokeShape="RoundRectangle 5"  StrokeThickness="2" Margin="5, 0, 5, 0">
+                                <Image Source="{Binding Source}" HeightRequest="150" Aspect="AspectFill"
+                                       >
+                                </Image>
+                                </Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="15"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Margin="5, 0, 0, 0" Text="{Binding DiscountsCount}" TextColor="{StaticResource DarkOrange2}" />
+                                <Label Grid.Column="1" Text="produkty na promocji" TextColor="{StaticResource DarkOrange2}"/>
+                                </Grid>
+                            </StackLayout>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

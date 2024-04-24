@@ -57,6 +57,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\image_1.jpg" />
+	  <None Remove="Resources\Images\image_2.jpg" />
+	  <None Remove="Resources\Images\image_3.jpg" />
+	  <None Remove="Resources\Images\menu.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
@@ -68,7 +75,6 @@
 	  <Folder Include="Converters\" />
 	  <Folder Include="Commands\" />
 	  <Folder Include="Services\" />
-	  <Folder Include="ViewModels\" />
 	  <Folder Include="Views\UserControls\" />
 	</ItemGroup>
 

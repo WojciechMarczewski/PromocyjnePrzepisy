@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="PromocyjnePrzepisy.Views.RecipePage"
-Title="RecipePage" Background="{StaticResource BackgroundBrush}">
+Title="RecipePage" Background="{StaticResource BackgroundBrush}" >
     <ContentPage.Resources>
         <x:Array x:Key="Items" Type="{x:Type x:String}" >
             <x:String>Nazwa Produktu</x:String>
@@ -29,7 +29,7 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}">
                 <GridItemsLayout VerticalItemSpacing="2" Orientation="Vertical"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
-                <DataTemplate >
+                <DataTemplate x:DataType="x:String">
                     <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" StrokeThickness="2">
                         <!--<Border.Shadow>
                             <Shadow Brush="Black" Offset="10, 10" Opacity="0.8" Radius="40"/>
