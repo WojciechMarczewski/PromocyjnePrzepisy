@@ -7,6 +7,7 @@
         public MainPage()
         {
             InitializeComponent();
+            this.TitleView.FindByName<ImageButton>("BackButton").IsVisible = false;
         }
 
 

@@ -57,10 +57,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\back_button.png" />
+	  <None Remove="Resources\Images\close_icon.png" />
+	  <None Remove="Resources\Images\help_icon.png" />
+	  <None Remove="Resources\Images\home_icon.png" />
 	  <None Remove="Resources\Images\image_1.jpg" />
 	  <None Remove="Resources\Images\image_2.jpg" />
 	  <None Remove="Resources\Images\image_3.jpg" />
+	  <None Remove="Resources\Images\list_icon.png" />
 	  <None Remove="Resources\Images\menu.png" />
+	  <None Remove="Resources\Images\search_icon.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -84,6 +90,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\ProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\RecipePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

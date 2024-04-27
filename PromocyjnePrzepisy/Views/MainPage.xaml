@@ -12,8 +12,8 @@
         </x:Array>
        
     </ContentPage.Resources>
-    <VerticalStackLayout HorizontalOptions="FillAndExpand" >
-        <uc:TitleView HorizontalOptions="FillAndExpand" />
+    <VerticalStackLayout  >
+        <uc:TitleView HeightRequest="50" x:Name="TitleView"/>
         <ScrollView>
         <VerticalStackLayout Margin="5, 5, 5, 5"
             Spacing="20">
