@@ -75,11 +75,19 @@
 	  <Folder Include="Converters\" />
 	  <Folder Include="Commands\" />
 	  <Folder Include="Services\" />
-	  <Folder Include="Views\UserControls\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\UserControls\TitleView.xaml.cs">
+	    <DependentUpon>TitleView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\RecipePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\UserControls\TitleView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:PromocyjnePrzepisy"
     xmlns:views="clr-namespace:PromocyjnePrzepisy.Views"
     Shell.FlyoutBehavior="Disabled"
-    Title="PromocyjnePrzepisy" Background="Transparent"
+    Title="PromocyjnePrzepisy" Background="Transparent"  NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False"
     >
 
     <ShellContent
@@ -17,20 +17,7 @@
     ContentTemplate="{DataTemplate views:RecipePage}" 
     Route="RecipePage" />
    
-    <Shell.TitleView  >
-        
-        <Grid ColumnDefinitions="40, *, 40"  Background="{StaticResource TitleViewBrush}" >
-            <Label Grid.Column="0"/>
-            <Label Grid.Column="1" Text="Promocyjne Przepisy" HorizontalOptions="Center" VerticalOptions="Center" FontSize="30"/>
-            <ImageButton  HeightRequest="40"
-                    WidthRequest="40" Grid.Column ="2"  HorizontalOptions="End" VerticalOptions="CenterAndExpand" Margin="0, 4, 2, 0">
-                <ImageButton.Source>
-                    <FileImageSource File="./Resources/Images/menu.png" />
-                </ImageButton.Source>
-            </ImageButton>
-        </Grid>
-        
-    </Shell.TitleView>
+   
     
 
 </Shell>

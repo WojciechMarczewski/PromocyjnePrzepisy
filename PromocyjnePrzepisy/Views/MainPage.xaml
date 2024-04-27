@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PromocyjnePrzepisy.MainPage" Background="{StaticResource BackgroundBrush }"
-             xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels" NavigationPage.HasBackButton="False">
+             xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels" NavigationPage.HasBackButton="False"
+             xmlns:uc="clr-namespace:PromocyjnePrzepisy.Views.UserControls">
     <ContentPage.Resources>
         <x:Array x:Key="StaticData" Type="{x:Type vm:CollectionViewItem}">
             <vm:CollectionViewItem Text="Przepis 1" Source="/Resources/Images/image_1.jpg" DiscountsCount="2" />
@@ -11,7 +12,9 @@
         </x:Array>
        
     </ContentPage.Resources>
-    <ScrollView>
+    <VerticalStackLayout HorizontalOptions="FillAndExpand" >
+        <uc:TitleView HorizontalOptions="FillAndExpand" />
+        <ScrollView>
         <VerticalStackLayout Margin="5, 5, 5, 5"
             Spacing="20">
             <ScrollView Orientation="Horizontal" HorizontalOptions="Center" >
@@ -58,6 +61,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </VerticalStackLayout>
-    </ScrollView>
+        </ScrollView>
+    </VerticalStackLayout>
 
 </ContentPage>
