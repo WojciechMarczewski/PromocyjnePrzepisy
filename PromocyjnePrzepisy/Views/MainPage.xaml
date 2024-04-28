@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PromocyjnePrzepisy.MainPage" Background="{StaticResource BackgroundBrush }"
              xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels" NavigationPage.HasBackButton="False"
-             xmlns:uc="clr-namespace:PromocyjnePrzepisy.Views.UserControls">
+             xmlns:uc="clr-namespace:PromocyjnePrzepisy.Views.UserControls" Title="MainPage">
     <ContentPage.Resources>
         <x:Array x:Key="StaticData" Type="{x:Type vm:CollectionViewItem}">
             <vm:CollectionViewItem Text="Przepis 1" Source="/Resources/Images/image_1.jpg" DiscountsCount="2" />
@@ -41,7 +41,7 @@
                     <DataTemplate x:DataType="vm:CollectionViewItem">
                         <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" Padding="5">
                             <StackLayout>
-                                <Label Style="{StaticResource RecipeNameStyle}" Text="{Binding Text }" FontSize="16"/>
+                                <Label Style="{StaticResource RecipeNameStyle}" Text="{Binding Text }" FontSize="16" BackgroundColor="Transparent"/>
                                 <Border StrokeShape="RoundRectangle 5"  StrokeThickness="2" Margin="5, 0, 5, 0">
                                 <Image Source="{Binding Source}" HeightRequest="150" Aspect="AspectFill"
                                        >

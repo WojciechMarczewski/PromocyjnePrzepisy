@@ -57,8 +57,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\analyze_icon.png" />
 	  <None Remove="Resources\Images\back_button.png" />
 	  <None Remove="Resources\Images\close_icon.png" />
+	  <None Remove="Resources\Images\expand_arrow.png" />
 	  <None Remove="Resources\Images\help_icon.png" />
 	  <None Remove="Resources\Images\home_icon.png" />
 	  <None Remove="Resources\Images\image_1.jpg" />
@@ -66,19 +68,20 @@
 	  <None Remove="Resources\Images\image_3.jpg" />
 	  <None Remove="Resources\Images\list_icon.png" />
 	  <None Remove="Resources\Images\menu.png" />
+	  <None Remove="Resources\Images\remove_icon.png" />
 	  <None Remove="Resources\Images\search_icon.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.21" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.21" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Models\" />
-	  <Folder Include="Converters\" />
 	  <Folder Include="Commands\" />
 	  <Folder Include="Services\" />
 	</ItemGroup>
@@ -94,6 +97,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RecipePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SearchPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ShoppingListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\UserControls\TitleView.xaml">

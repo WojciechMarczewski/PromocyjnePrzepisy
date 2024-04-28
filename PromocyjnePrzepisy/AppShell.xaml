@@ -19,15 +19,16 @@
     <ShellContent 
     ContentTemplate="{DataTemplate views:RecipePage}" 
     Route="RecipePage" />
-
-    <ShellContent ContentTemplate="{DataTemplate views:ProductPage}" Route="ProductPage" />
-    <MenuItem Text="Strona Główna" IconImageSource="./Resources/Images/home_icon.png">
+    <ShellContent ContentTemplate="{DataTemplate views:ShoppingListPage}" Route="ShpngListPage" />
+    <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" Route="SearchPage" />
+    <!--<ShellContent ContentTemplate="{DataTemplate views:ProductPage}" Route="ProductPage" />-->
+    <MenuItem Text="Strona Główna" IconImageSource="./Resources/Images/home_icon.png" Clicked="MainPage_Clicked">
        
     </MenuItem>
-    <MenuItem Text="Lista Zakupów" IconImageSource="./Resources/Images/list_icon.png">
+    <MenuItem Text="Lista Zakupów" IconImageSource="./Resources/Images/list_icon.png" Clicked="ShoppingList_Clicked">
      
     </MenuItem>
-    <MenuItem Text="Wyszukiwarka" IconImageSource="./Resources/Images/search_icon.png">
+    <MenuItem Text="Wyszukiwarka" IconImageSource="./Resources/Images/search_icon.png" Clicked="SearchPage_Clicked" >
     </MenuItem>
     <MenuItem Text="Pomoc i Opinie" IconImageSource="./Resources/Images/help_icon.png">
        
