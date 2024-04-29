@@ -21,7 +21,7 @@ Visual Studio 2022 Community Edition, Framework .Net MAUI (Muli-platform app UI)
 * Filtrowanie propozycji po rodzaju supermarketu, rodzaju produktu/ów czy preferencji żywieniowych(wegańskie, wegeteriańskie).
 * Generowanie listy zakupów na podstawie wybranego przepisu.
 * Podgląd dania wraz z przepisem oraz konkretnymi produktami w przecenie.
-* Dodawanie cen zakupionych produktów na podstawie skanu paragonu lub ręcznym wprowadzeniu ceny (działanie nieobowiązkowe dla użytkownika, ale ułatwiające określanie całkowitej ceny dania dla innych użytkowników).
+* Dodawanie cen zakupionych produktów na podstawie skanu paragonu lub ręcznym wprowadzeniu ceny (działanie nieobowiązkowe dla użytkownika, ale ułatwiające określanie całkowitej ceny dania dla innych użytkowników) - w tej chwili odłożona funkcjonalność.
 
 ### Podstawowy cel stworzenia aplikacji:
 Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najkorzystniejsze cenowo w danym czasie (pobudki ekonomiczne)
