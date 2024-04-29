@@ -1,8 +1,8 @@
 namespace PromocyjnePrzepisy.Views;
 
-public partial class SearchPage : ContentPage
+public partial class HelpAboutPage : ContentPage
 {
-    public SearchPage()
+    public HelpAboutPage()
     {
         InitializeComponent();
         this.TitleView.FindByName<ImageButton>("BackButton").IsVisible = false;

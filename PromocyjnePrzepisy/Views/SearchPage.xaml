@@ -17,9 +17,8 @@
     </ContentPage.Resources>
     <ScrollView>
     <VerticalStackLayout>
-        <uc:TitleView/>
+        <uc:TitleView x:Name="TitleView"/>
         <SearchBar Background="White"/>
-       
         <CollectionView ItemsSource="{StaticResource Items}" Margin="5"  >
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="2"/>
@@ -57,15 +56,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-            <Grid Margin="0, 0, 0, 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button Text="Wyczyść Listę Zakupów"  HeightRequest="40" Grid.Column="1"/>
-            </Grid>
         </VerticalStackLayout>
-    
     </ScrollView>
 </ContentPage>

@@ -4,7 +4,7 @@
              x:Class="PromocyjnePrzepisy.Views.UserControls.TitleView"  >
     <Grid>
         <Grid ColumnDefinitions="40, *, 40"  Background="{StaticResource TitleViewBrush}" >
-         <ImageButton x:Name="BackButton" Grid.Column="0" WidthRequest="40" HeightRequest="50" VerticalOptions="End" >
+         <ImageButton x:Name="BackButton" Grid.Column="0" WidthRequest="40" HeightRequest="50" VerticalOptions="End" Clicked="BackButton_Clicked">
                 <ImageButton.Source>
                    <FileImageSource File="./Resources/Images/back_button.png" />
                </ImageButton.Source>

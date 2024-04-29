@@ -6,36 +6,32 @@
     xmlns:local="clr-namespace:PromocyjnePrzepisy"
     xmlns:views="clr-namespace:PromocyjnePrzepisy.Views"
     Shell.FlyoutBehavior="Flyout"
-    Title="PromocyjnePrzepisy" Background="Transparent"  NavigationPage.HasNavigationBar="False" 
+    Title="PromocyjnePrzepisy" Background="Transparent"  NavigationPage.HasNavigationBar="False"  
     NavigationPage.HasBackButton="False" FlyoutBackgroundColor ="{StaticResource TransparentWhite}"
-    
     >
-    
-
-    <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" 
-        />
-    <ShellContent 
-    ContentTemplate="{DataTemplate views:RecipePage}" 
-    Route="RecipePage" />
-    <ShellContent ContentTemplate="{DataTemplate views:ShoppingListPage}" Route="ShpngListPage" />
-    <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" Route="SearchPage" />
-    <!--<ShellContent ContentTemplate="{DataTemplate views:ProductPage}" Route="ProductPage" />-->
-    <MenuItem Text="Strona Główna" IconImageSource="./Resources/Images/home_icon.png" Clicked="MainPage_Clicked">
-       
-    </MenuItem>
-    <MenuItem Text="Lista Zakupów" IconImageSource="./Resources/Images/list_icon.png" Clicked="ShoppingList_Clicked">
-     
-    </MenuItem>
-    <MenuItem Text="Wyszukiwarka" IconImageSource="./Resources/Images/search_icon.png" Clicked="SearchPage_Clicked" >
-    </MenuItem>
-    <MenuItem Text="Pomoc i Opinie" IconImageSource="./Resources/Images/help_icon.png">
-       
-    </MenuItem>
+   
+    <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" Title="Strona Główna" >
+        <ShellContent.Icon>
+            <FileImageSource File="./Resources/Images/home_icon.png" />
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellContent ContentTemplate="{DataTemplate views:ShoppingListPage}" Route="ShpngListPage" Title="Lista Zakupów">
+        <ShellContent.Icon>
+            <FileImageSource File="./Resources/Images/list_icon.png" />
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" Route="SearchPage" Title="Wyszukiwarka">
+        <ShellContent.Icon>
+            <FileImageSource File="./Resources/Images/search_icon.png" />
+        </ShellContent.Icon>
+    </ShellContent>
+    <ShellContent ContentTemplate="{DataTemplate views:HelpAboutPage}" Route="HelpAboutPage" Title="Pomoc i Opinie">
+        <ShellContent.Icon>
+            <FileImageSource File="./Resources/Images/help_icon.png" />
+        </ShellContent.Icon>
+    </ShellContent>
+   
     <MenuItem Text=""/>
-    <MenuItem Text="Zamknij" IconImageSource="./Resources/Images/close_icon.png"/>
-
-
-
+    <MenuItem Text="Zamknij" IconImageSource="./Resources/Images/close_icon.png" Clicked="Close_Clicked"/>
+   
 </Shell>

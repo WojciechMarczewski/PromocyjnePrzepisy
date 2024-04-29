@@ -15,8 +15,9 @@
             <x:String>Nazwa Produktu</x:String>
         </x:Array>
     </ContentPage.Resources>
+    <ScrollView>
     <VerticalStackLayout >
-        <uc:TitleView/>
+        <uc:TitleView x:Name="TitleView"/>
         <Label Text="Twoja Lista Zakupów"  Style="{StaticResource RecipeNameStyle}" BackgroundColor="Transparent"
                HorizontalOptions="Center" Margin="5"/>
         <CollectionView ItemsSource="{StaticResource Items}" Margin="5" >
@@ -56,5 +57,14 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Grid Margin="0, 0, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Wyczyść Listę Zakupów"  HeightRequest="30" Grid.Column="1" Padding="0, 0, 0, 2"/>
+        </Grid>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

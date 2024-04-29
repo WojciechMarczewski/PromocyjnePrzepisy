@@ -10,7 +10,6 @@
             <vm:CollectionViewItem Text="Przepis 2" Source="/Resources/Images/image_2.jpg" DiscountsCount="1"/>
             <vm:CollectionViewItem Text="Przepis 3" Source="/Resources/Images/image_3.jpg" DiscountsCount="1"/>
         </x:Array>
-       
     </ContentPage.Resources>
     <VerticalStackLayout  >
         <uc:TitleView HeightRequest="50" x:Name="TitleView"/>
@@ -34,13 +33,18 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.Shadow>
                     <Shadow Brush="Black" Opacity="0.4" Radius="5" Offset="5, 5">
-                        
                     </Shadow>
                 </CollectionView.Shadow>
                 <CollectionView.ItemTemplate >
+                    
                     <DataTemplate x:DataType="vm:CollectionViewItem">
-                        <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" Padding="5">
+                            
+                            <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" Padding="5">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Border.GestureRecognizers>
                             <StackLayout>
+                                
                                 <Label Style="{StaticResource RecipeNameStyle}" Text="{Binding Text }" FontSize="16" BackgroundColor="Transparent"/>
                                 <Border StrokeShape="RoundRectangle 5"  StrokeThickness="2" Margin="5, 0, 5, 0">
                                 <Image Source="{Binding Source}" HeightRequest="150" Aspect="AspectFill"
@@ -63,5 +67,4 @@
         </VerticalStackLayout>
         </ScrollView>
     </VerticalStackLayout>
-
 </ContentPage>
