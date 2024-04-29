@@ -37,13 +37,14 @@ Ułatwienie wyboru zakupów konkretnych produktów spożywczych, które są najk
 * Inne nieokreślone przez brak doświadczenia/wiedzy/wyobraźni - w tej chwili nie uwzględniam na przykład tworzenia użytkowników w aplikacji.
 
 ## Najbliższe działania:
-1. Implementacja widoków na podstawie mockupu.
-2. Stworzenie historyjek użytkownika (przesada?) - jasne określenie jakie funkcjonalności będzie zawierała aplikacja (W Toku - historyjki w projekcie w Jira)
+1. Implementacja Modeli i ViewModeli w tym binding ViewModel <-> View
 
 ## Wykonane:
 * Przygotowanie środowiska pracy - stworzenie projektu aplikacji w Visual Studio
 * Inicjalizacja repozytorium systemu kontroli wersji
 * Stworzenie prostego mockupu interfejsu użytkownika w figmie
+* Implementacja widoków na podstawie mockupu.
+* Stworzenie historyjek użytkownika - jasne określenie jakie funkcjonalności będzie zawierała aplikacja 
 
 # Plan godzinowy na kwiecień (80 godzin)
 Dzień - Czas trwania - Przedział godzinowy
