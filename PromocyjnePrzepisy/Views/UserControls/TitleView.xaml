@@ -4,17 +4,28 @@
              x:Class="PromocyjnePrzepisy.Views.UserControls.TitleView"  >
     <Grid>
         <Grid ColumnDefinitions="40, *, 40"  Background="{StaticResource TitleViewBrush}" >
-         <ImageButton x:Name="BackButton" Grid.Column="0" WidthRequest="40" HeightRequest="50" VerticalOptions="End" >
+         <ImageButton x:Name="BackButton" Grid.Column="0" WidthRequest="40" HeightRequest="50" VerticalOptions="End" Clicked="BackButton_Clicked">
                 <ImageButton.Source>
                    <FileImageSource File="./Resources/Images/back_button.png" />
                </ImageButton.Source>
-           </ImageButton>
-            <Label Grid.Column="1" Text="Promocyjne Przepisy" HorizontalOptions="Center" VerticalOptions="Center" FontSize="30"/>
+                <ImageButton.Shadow>
+                    <Shadow Brush="Black" Radius="100"  Offset="5, 15"/>
+                </ImageButton.Shadow>
+            </ImageButton>
+            <Label Grid.Column="1" Text="Promocyjne Przepisy" HorizontalOptions="Center" 
+                   VerticalOptions="Center" FontSize="30" FontAttributes="Bold">
+                <Label.Shadow>
+                    <Shadow Brush="Black" Radius="80"  Offset="5, 15"/>
+                </Label.Shadow>
+            </Label>
             <ImageButton x:Name="FlyoutMenuButton"  HeightRequest="40"
             WidthRequest="40" Grid.Column ="2"  HorizontalOptions="End" VerticalOptions="CenterAndExpand" Margin="0, 4, 2, 0" Clicked='FlyoutMenuButton_Clicked'>
                 <ImageButton.Source>
                     <FileImageSource File="./Resources/Images/menu.png" />
                 </ImageButton.Source>
+                <ImageButton.Shadow>
+                    <Shadow Brush="Black" Radius="80"  Offset="5, 15"/>
+                </ImageButton.Shadow>
             </ImageButton>
         </Grid>
     </Grid>
