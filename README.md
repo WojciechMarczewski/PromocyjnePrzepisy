@@ -65,3 +65,29 @@ Dzień - Czas trwania - Przedział godzinowy
 * 30.04.2024 - 8h - 10:00 - 18:00;
 
 Notatka: W dniach 16.04 i 17.04 jest zapisane 16h w ramach zapoznawania się z przedsiębiorstwem (zobacz Dziennik Praktyk), więc odejmując to od zaplanowanych godzin zostaje 64h. W planie sumarycznie jest 72h, więc 8h godzin jest nadmiarowe - prawdopodobnie 2 dni po 4h będą odjęte, albo zredukuje się czas 4 godzinnych aktywności do 3 godzin. Dni z 8 godzinami to dni wolne od pracy, weekend 6h jest dniem zjazdowym na uczelni.
+
+# Plan godzinowy na maj (120 godzin)
+Dzień - Czas trwania - Przedział godzinowy
+* 02.05.2024 - 8h - 10:00 - 18:00
+* 04.05.2024 - 8h - 10:00 - 18:00
+* 05.05.2024 - 8h - 10:00 - 18:00
+* 06.05.2024 - 4h - 20:30 - 00:30
+* 07.05.2024 - 4h - 20:30 - 00:30
+* 09.05.2024 - 4h - 20:30 - 00:30
+* 11.05.2024 - 6h - 20:30 - 02:30
+* 12.05.2024 - 6h - 20:30 - 02:30
+* 13.05.2024 - 4h - 20:30 - 00:30
+* 14.05.2024 - 4h - 20:30 - 00:30
+* 16.05.2024 - 4h - 20:30 - 00:30
+* 18.05.2024 - 8h - 10:00 - 18:00
+* 19.05.2024 - 8h - 10:00 - 18:00
+* 20.05.2024 - 4h - 20:30 - 00:30
+* 21.05.2024 - 4h - 20:30 - 00:30
+* 23.05.2024 - 4h - 20:30 - 00:30
+* 24.05.2024 - 4h - 20:30 - 00:30
+* 25.05.2024 - 6h - 20:30 - 02:30
+* 26.05.2024 - 6h - 20:30 - 02:30
+* 27.05.2024 - 4h - 20:30 - 00:30
+* 28.05.2024 - 4h - 20:30 - 00:30
+* 29.05.2024 - 4h - 20:30 - 00:30
+* 31.05.2024 - 4h - 20:30 - 00:30
