@@ -2,7 +2,7 @@
 
 namespace PromocyjnePrzepisy.viewModels
 {
-    internal abstract class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler? PropertyChanged;

@@ -48,7 +48,7 @@
                             </ImageButton>
                             <ImageButton Grid.RowSpan="3" Grid.Column="2" Margin="4">
                                 <ImageButton.Source>
-                                    <FileImageSource File="./Resources/Images/remove_icon.png" />
+                                    <FileImageSource File="./Resources/Images/add_icon.png" />
                                 </ImageButton.Source>
                             </ImageButton>
                         </Grid>
