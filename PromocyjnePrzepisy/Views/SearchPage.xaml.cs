@@ -5,6 +5,6 @@ public partial class SearchPage : ContentPage
     public SearchPage()
     {
         InitializeComponent();
-        this.TitleView.FindByName<ImageButton>("BackButton").IsVisible = false;
+        this.TitleBarView.FindByName<ImageButton>("BackButton").IsVisible = false;
     }
 }

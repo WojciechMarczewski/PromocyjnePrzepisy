@@ -1,6 +1,4 @@
-﻿using PromocyjnePrzepisy.Views;
-
-namespace PromocyjnePrzepisy
+﻿namespace PromocyjnePrzepisy.Views
 {
     public partial class MainPage : ContentPage
     {
@@ -9,7 +7,8 @@ namespace PromocyjnePrzepisy
         public MainPage()
         {
             InitializeComponent();
-            this.TitleView.FindByName<ImageButton>("BackButton").IsVisible = false;
+            this.TitleBarView.FindByName<ImageButton>("BackButton").IsVisible = false;
+
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)

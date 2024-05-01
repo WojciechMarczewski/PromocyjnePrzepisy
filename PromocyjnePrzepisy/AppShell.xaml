@@ -10,7 +10,7 @@
     NavigationPage.HasBackButton="False" FlyoutBackgroundColor ="{StaticResource TransparentWhite}"
     >
    
-    <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" Title="Strona Główna" >
+    <ShellContent ContentTemplate="{DataTemplate views:MainPage}" Route="MainPage" Title="Strona Główna" >
         <ShellContent.Icon>
             <FileImageSource File="./Resources/Images/home_icon.png" />
         </ShellContent.Icon>

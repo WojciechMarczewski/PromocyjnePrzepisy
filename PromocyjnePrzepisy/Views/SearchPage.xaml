@@ -17,7 +17,7 @@
     </ContentPage.Resources>
     <ScrollView>
     <VerticalStackLayout>
-        <uc:TitleView x:Name="TitleView"/>
+            <uc:TitleBarView x:Name="TitleBarView"/>
         <SearchBar Background="White"/>
         <CollectionView ItemsSource="{StaticResource Items}" Margin="5"  >
             <CollectionView.ItemsLayout>

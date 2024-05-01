@@ -1,7 +1,7 @@
 namespace PromocyjnePrzepisy.Views.UserControls;
-public partial class TitleView : ContentView
+public partial class TitleBarView : ContentView
 {
-    public TitleView()
+    public TitleBarView()
     {
         InitializeComponent();
     }

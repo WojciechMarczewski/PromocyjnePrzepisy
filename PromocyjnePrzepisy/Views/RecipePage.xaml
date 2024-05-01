@@ -19,7 +19,7 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
         <c:ExpandedToRotationConverter x:Key="RotationCoverter" />
     </ContentPage.Resources>
     <VerticalStackLayout>
-        <uc:TitleView></uc:TitleView>
+        <uc:TitleBarView x:Name="TitleBarView"></uc:TitleBarView>
         <Grid>
 
             <Image HeightRequest="150"  Aspect="AspectFill">

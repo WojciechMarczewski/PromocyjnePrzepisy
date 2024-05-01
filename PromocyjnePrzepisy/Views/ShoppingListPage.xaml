@@ -17,7 +17,7 @@
     </ContentPage.Resources>
     <ScrollView>
     <VerticalStackLayout >
-        <uc:TitleView x:Name="TitleView"/>
+            <uc:TitleBarView x:Name="TitleBarView"/>
         <Label Text="Twoja Lista Zakupów"  Style="{StaticResource RecipeNameStyle}" BackgroundColor="Transparent"
                HorizontalOptions="Center" Margin="5"/>
         <CollectionView ItemsSource="{StaticResource Items}" Margin="5" >

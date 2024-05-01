@@ -5,7 +5,7 @@
              Title="HelpAboutPage" Background="{StaticResource BackgroundBrush}" 
              xmlns:uc="clr-namespace:PromocyjnePrzepisy.Views.UserControls">
     <VerticalStackLayout>
-        <uc:TitleView x:Name="TitleView" />
+        <uc:TitleBarView x:Name="TitleBarView" />
         <Label Text="Pomoc i Opinie" Style="{StaticResource  RecipeInfoLabel}" HorizontalOptions="Center" Margin="5"/>
         <Border StrokeShape="RoundRectangle 5"  Background="White" Margin="5">
             <VerticalStackLayout HorizontalOptions="Center"  VerticalOptions="FillAndExpand" Margin="5">

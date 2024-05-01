@@ -5,6 +5,6 @@ public partial class HelpAboutPage : ContentPage
     public HelpAboutPage()
     {
         InitializeComponent();
-        this.TitleView.FindByName<ImageButton>("BackButton").IsVisible = false;
+        this.TitleBarView.FindByName<ImageButton>("BackButton").IsVisible = false;
     }
 }
