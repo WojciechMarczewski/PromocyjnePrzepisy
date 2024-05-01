@@ -1,10 +1,14 @@
-﻿namespace PromocyjnePrzepisy.viewModels
+﻿using System.Collections.ObjectModel;
+
+namespace PromocyjnePrzepisy.ViewModels
 {
-    internal class MainPageViewModel : BaseViewModel
+    public class MainPageViewModel : BaseViewModel
     {
-        MainPageViewModel()
+        public ObservableCollection<CollectionViewItem> collectionViewItems = new ObservableCollection<CollectionViewItem>();
+        public MainPageViewModel()
         {
 
         }
+
     }
 }

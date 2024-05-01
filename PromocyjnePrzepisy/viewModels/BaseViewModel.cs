@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace PromocyjnePrzepisy.viewModels
+namespace PromocyjnePrzepisy.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
