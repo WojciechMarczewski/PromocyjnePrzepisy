@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromocyjnePrzepisy", "PromocyjnePrzepisy\PromocyjnePrzepisy.csproj", "{50953A43-516C-4FCD-8C9A-09BABE6858E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromocyjnePrzepisy(Corrupted)", "PromocyjnePrzepisy(Corrupted)\PromocyjnePrzepisy(Corrupted).csproj", "{50953A43-516C-4FCD-8C9A-09BABE6858E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PromocyjnePrzepisyTests", "PromocyjnePrzepisyTests\PromocyjnePrzepisyTests.csproj", "{8464F09D-88F1-4ABE-9151-DD5AC046B510}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromocyjnePrzepisyTests", "PromocyjnePrzepisyTests\PromocyjnePrzepisyTests.csproj", "{8464F09D-88F1-4ABE-9151-DD5AC046B510}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromocyjnePrzepisy", "PromocyjnePrzepisy\PromocyjnePrzepisy.csproj", "{C897B576-DAB6-4716-9122-F6F1837E6F76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,12 @@ Global
 		{8464F09D-88F1-4ABE-9151-DD5AC046B510}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8464F09D-88F1-4ABE-9151-DD5AC046B510}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8464F09D-88F1-4ABE-9151-DD5AC046B510}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C897B576-DAB6-4716-9122-F6F1837E6F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C897B576-DAB6-4716-9122-F6F1837E6F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C897B576-DAB6-4716-9122-F6F1837E6F76}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C897B576-DAB6-4716-9122-F6F1837E6F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C897B576-DAB6-4716-9122-F6F1837E6F76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C897B576-DAB6-4716-9122-F6F1837E6F76}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

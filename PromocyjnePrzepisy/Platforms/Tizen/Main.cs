@@ -2,7 +2,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace PromocyjnePrzepisy
+namespace testProject
 {
     internal class Program : MauiApplication
     {

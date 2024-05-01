@@ -37,12 +37,12 @@
         <GradientStop Offset="0.0" Color="LightSalmon" />
         <GradientStop Offset="1.0" Color="#937777"/>
         <LinearGradientBrush.Effects>
-            
+
         </LinearGradientBrush.Effects>
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="TitleViewBrush" StartPoint="0,0" EndPoint="1,1">
 
-        <GradientStop Offset="0.0" Color="Beige"/> 
+        <GradientStop Offset="0.0" Color="Beige"/>
         <GradientStop Offset="1.0" Color="LightSalmon" />
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="BackgroundBrush" >
@@ -63,5 +63,5 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
-    
+
 </ResourceDictionary>

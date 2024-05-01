@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net8.0-android;</TargetFrameworks>
-		<!--<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>-->
+		<!--TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>-->
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
 
@@ -21,10 +21,10 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>PromocyjnePrzepisy</ApplicationTitle>
+		<ApplicationTitle>Promocyjne Przepisy</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.promocyjneprzepisy</ApplicationId>
+		<ApplicationId>com.companyname.promocyjne</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -38,20 +38,12 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>-->
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
-	  <Debugger>Xamarin</Debugger>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
-	  <Debugger>Xamarin</Debugger>
-	</PropertyGroup>
-
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.jpg" />
-
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFA07A" BaseSize="412, 512" Resize="true" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" BaseSize="128,128" Resize="true" />
+
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
@@ -64,6 +56,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\add_icon.png" />
 	  <None Remove="Resources\Images\analyze_icon.png" />
 	  <None Remove="Resources\Images\back_button.png" />
 	  <None Remove="Resources\Images\close_icon.png" />
@@ -77,7 +70,8 @@
 	  <None Remove="Resources\Images\menu.png" />
 	  <None Remove="Resources\Images\remove_icon.png" />
 	  <None Remove="Resources\Images\search_icon.png" />
-	</ItemGroup>
+	  <None Remove="Resources\Images\vertical_dots_icon.png" />
+	</ItemGroup>		
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.1" />
@@ -86,24 +80,14 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.21" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
-
 	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="Commands\" />
-	  <Folder Include="Services\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="Views\UserControls\TitleView.xaml.cs">
-	    <DependentUpon>TitleView.xaml</DependentUpon>
+	  <Compile Update="Views\TitleBarView.xaml.cs">
+	    <DependentUpon>TitleBarView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\HelpAboutPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\RecipePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SearchPage.xaml">
@@ -112,7 +96,10 @@
 	  <MauiXaml Update="Views\ShoppingListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\UserControls\TitleView.xaml">
+	  <MauiXaml Update="Views\RecipePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TitleBarView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
