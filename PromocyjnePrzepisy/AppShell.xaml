@@ -12,7 +12,7 @@ NavigationPage.HasBackButton="False"
 
     <ShellContent
         Title="Strona Główna"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate view:MainPage}"
         Route="MainPage" >
         <ShellContent.Icon>
             <FileImageSource File="./Resources/Images/home_icon.png" />

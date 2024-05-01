@@ -1,4 +1,4 @@
-﻿namespace PromocyjnePrzepisy
+﻿namespace PromocyjnePrzepisy.ViewModels
 {
     public class CollectionItem(string name, string source, int discountsCount) : BaseViewModel
     {

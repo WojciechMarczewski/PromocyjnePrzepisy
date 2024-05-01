@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PromocyjnePrzepisy.Views.SearchPage"
-             xmlns:local="clr-namespace:PromocyjnePrzepisy"
+             xmlns:v="clr-namespace:PromocyjnePrzepisy.Views"
              Background="{StaticResource BackgroundBrush}" Title="SearchPage">
     <ContentPage.Resources>
         <x:Array x:Key="Items" Type="{x:Type x:String}" >
@@ -17,7 +17,7 @@
     </ContentPage.Resources>
     <ScrollView>
     <VerticalStackLayout>
-            <local:TitleBarView x:Name="TitleBarView"/>
+            <v:TitleBarView x:Name="TitleBarView"/>
         <SearchBar Background="White"/>
         <CollectionView ItemsSource="{StaticResource Items}" Margin="5"  >
             <CollectionView.ItemsLayout>

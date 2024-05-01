@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PromocyjnePrzepisy.Views.ShoppingListPage"
-               xmlns:local="clr-namespace:PromocyjnePrzepisy" Background="{StaticResource BackgroundBrush}"
+               xmlns:v="clr-namespace:PromocyjnePrzepisy.Views" Background="{StaticResource BackgroundBrush}"
              Title="ShoppingListPage">
     <ContentPage.Resources>
         <x:Array x:Key="Items" Type="{x:Type x:String}" >
@@ -17,7 +17,7 @@
     </ContentPage.Resources>
     <ScrollView>
     <VerticalStackLayout >
-            <local:TitleBarView x:Name="TitleBarView"/>
+            <v:TitleBarView x:Name="TitleBarView"/>
         <Label Text="Twoja Lista Zakupów"  Style="{StaticResource RecipeNameStyle}" BackgroundColor="Transparent"
                HorizontalOptions="Center" Margin="5"/>
         <CollectionView ItemsSource="{StaticResource Items}" Margin="5" >

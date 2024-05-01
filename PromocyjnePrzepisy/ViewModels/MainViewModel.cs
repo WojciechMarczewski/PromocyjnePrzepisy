@@ -1,4 +1,4 @@
-﻿namespace PromocyjnePrzepisy
+﻿namespace PromocyjnePrzepisy.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {

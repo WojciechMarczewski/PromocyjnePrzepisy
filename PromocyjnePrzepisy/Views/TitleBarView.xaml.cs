@@ -1,4 +1,4 @@
-namespace PromocyjnePrzepisy;
+namespace PromocyjnePrzepisy.Views;
 public partial class TitleBarView : ContentView
 {
     public TitleBarView()

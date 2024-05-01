@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PromocyjnePrzepisy.MainPage"
-             xmlns:local="clr-namespace:PromocyjnePrzepisy" NavigationPage.HasBackButton="False" Background="{StaticResource BackgroundBrush}">
+             x:Class="PromocyjnePrzepisy.Views.MainPage"
+             xmlns:local="clr-namespace:PromocyjnePrzepisy.ViewModels" NavigationPage.HasBackButton="False"
+             Background="{StaticResource BackgroundBrush}" xmlns:v="clr-namespace:PromocyjnePrzepisy.Views">
 
-    <ContentPage.BindingContext>
+   <ContentPage.BindingContext>
         <local:MainViewModel />
     </ContentPage.BindingContext>
     <VerticalStackLayout>
-        <local:TitleBarView  HeightRequest="50" x:Name="TitleBarView"/>
+        <v:TitleBarView  HeightRequest="50" x:Name="TitleBarView"/>
         <Grid Margin="5, 5, 5, 5"
     RowSpacing="20">
             <Grid.RowDefinitions>

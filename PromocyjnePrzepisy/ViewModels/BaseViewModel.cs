@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace PromocyjnePrzepisy
+namespace PromocyjnePrzepisy.ViewModels
 {
     public abstract class BaseViewModel
     {

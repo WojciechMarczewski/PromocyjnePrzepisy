@@ -1,4 +1,4 @@
-﻿namespace PromocyjnePrzepisy
+﻿namespace PromocyjnePrzepisy.Views
 {
     public partial class MainPage : ContentPage
     {
