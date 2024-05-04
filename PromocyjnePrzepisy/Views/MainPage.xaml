@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PromocyjnePrzepisy.Views.MainPage"
              xmlns:local="clr-namespace:PromocyjnePrzepisy.ViewModels" NavigationPage.HasBackButton="False"
-             Background="{StaticResource BackgroundBrush}" xmlns:v="clr-namespace:PromocyjnePrzepisy.Views">
-
-   <ContentPage.BindingContext>
+             Background="{StaticResource BackgroundBrush}" xmlns:v="clr-namespace:PromocyjnePrzepisy.Views"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels">
+            
+   <!--<ContentPage.BindingContext>
         <local:MainViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     <VerticalStackLayout>
         <v:TitleBarView  HeightRequest="50" x:Name="TitleBarView"/>
         <Grid Margin="5, 5, 5, 5"
@@ -28,7 +30,8 @@
                 </HorizontalStackLayout>
             </ScrollView>
            
-            <CollectionView Grid.Row="1" ItemsSource="{Binding Items}" VerticalScrollBarVisibility="Always" HeightRequest="900" >
+            <CollectionView x:Name="RecipeCollection" Grid.Row="1" ItemsSource="{Binding RecipeCollection}" VerticalScrollBarVisibility="Always" 
+                            HeightRequest="900" RemainingItemsThreshold="5" x:DataType="vm:MainViewModel">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout  VerticalItemSpacing="6" Orientation="Vertical"/>
                 </CollectionView.ItemsLayout>
@@ -38,7 +41,7 @@
                     
                 </CollectionView.Shadow>
                 <CollectionView.ItemTemplate>
-                    <DataTemplate >
+                    <DataTemplate x:DataType="vm:RecipeViewModel" >
                         <VerticalStackLayout >
                             <!--<Label  Text="{Binding Name}" />
                             <Image Source="{Binding Source}"/>-->
@@ -50,7 +53,7 @@
 
                                     <Label Style="{StaticResource RecipeNameStyle}" Text="{Binding Name }" FontSize="16" BackgroundColor="Transparent"/>
                                     <Border StrokeShape="RoundRectangle 5"  StrokeThickness="2" Margin="5, 0, 5, 0">
-                                        <Image Source="{Binding Source}" HeightRequest="150" Aspect="AspectFill"
+                                        <Image Source="{Binding Image, Mode=OneWay, Converter={toolkit:ByteArrayToImageSourceConverter}}" HeightRequest="150" Aspect="AspectFill"
        >
                                         </Image>
                                     </Border>

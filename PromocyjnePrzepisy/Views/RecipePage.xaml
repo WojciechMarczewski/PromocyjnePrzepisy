@@ -3,45 +3,30 @@
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 x:Class="PromocyjnePrzepisy.RecipePage"
 xmlns:v="clr-namespace:PromocyjnePrzepisy.Views"
+             xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels"
 Title="RecipePage" Background="{StaticResource BackgroundBrush}" 
              xmlns:c="clr-namespace:PromocyjnePrzepisy.Converters"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
     <ContentPage.Resources>
-        <x:Array x:Key="Items" Type="{x:Type x:String}" >
-            <x:String>Nazwa Składnika</x:String>
-            <x:String>Nazwa Składnika</x:String>
-            <x:String>Nazwa Składnika</x:String>
-            <x:String>Nazwa Składnika</x:String>
-            <x:String>Nazwa Składnika</x:String>
-            <x:String>Nazwa Składnika</x:String>
-            <x:String>Nazwa Składnika</x:String>
-        </x:Array>
         <c:ExpandedToRotationConverter x:Key="RotationCoverter" />
     </ContentPage.Resources>
-    <VerticalStackLayout>
+    <VerticalStackLayout x:DataType="vm:RecipePageViewModel">
         <v:TitleBarView x:Name="TitleBarView"></v:TitleBarView>
         <Grid>
-
-            <Image HeightRequest="150"  Aspect="AspectFill">
-
-                <Image.Source>
-                    <FileImageSource File="./Resources/Images/image_1.png" />
-                </Image.Source>
+            <Image HeightRequest="150"  Aspect="AspectFill" 
+                   Source="{Binding Image, Mode=OneWay, Converter={toolkit:ByteArrayToImageSourceConverter}}">
             </Image>
-            <Label Text="Nazwa przepisu" Style="{StaticResource RecipeNameStyle}" VerticalOptions="End"/>
+            <Label Text="{Binding RecipeTitle}" Style="{StaticResource RecipeNameStyle}" VerticalOptions="End"/>
         </Grid>
         <Label Text="Składniki:" Style="{StaticResource RecipeInfoLabel}"/>
         <!--Itemssouce to set in future-->
-        <CollectionView ItemsSource="{StaticResource Items}" Margin="5, 5, 10, 5" >
+        <CollectionView ItemsSource="{Binding Ingredients}" Margin="5, 5, 10, 5" >
             <CollectionView.ItemsLayout>
                 <GridItemsLayout VerticalItemSpacing="2" Orientation="Vertical"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="x:String">
+                <DataTemplate x:DataType="vm:IngredientViewModel">
                     <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" StrokeThickness="2">
-
-
-
                         <toolkit:Expander x:Name="Exp" Grid.Row="1" Grid.ColumnSpan="2">
                             <toolkit:Expander.Header>
                                 <Grid>
@@ -54,8 +39,8 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                                         <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <Label Text="{Binding .}" HorizontalOptions="Start" VerticalOptions="Center" Margin="10, 0, 0, 0" Grid.Column="0" FontSize="15" FontAttributes="Bold"/>
-                                    <Label Text="%" TextColor="OrangeRed" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Margin="10, 0, 10, 0" Grid.RowSpan="2"/>
+                                    <Label Text="{Binding Name}" HorizontalOptions="Start" VerticalOptions="Center" Margin="10, 0, 0, 0" Grid.Column="0" FontSize="15" FontAttributes="Bold"/>
+                                    <Label Text="%" TextColor="OrangeRed" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Margin="10, 0, 10, 0" Grid.RowSpan="2" IsVisible="{Binding HasDiscounts}"/>
                                     <Image Grid.Column="2" Margin="5" HorizontalOptions="End" HeightRequest="16" Rotation="{Binding Source={x:Reference Exp}, Path=IsExpanded, Converter={StaticResource RotationCoverter}}">
                                         <Image.Source>
                                             <FileImageSource File="./Resources/Images/expand_arrow.png"/>
@@ -64,14 +49,12 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                                 </Grid>
                             </toolkit:Expander.Header>
                             <toolkit:Expander.Content>
-                                <!--Itemssource to set in future-->
-                                <CollectionView ItemsSource="{StaticResource Items}"  Margin="5">
+                                <CollectionView ItemsSource="{Binding ProductViewModels}"  Margin="5" >
                                     <CollectionView.ItemsLayout >
                                         <GridItemsLayout VerticalItemSpacing="2" Orientation="Vertical" />
-
                                     </CollectionView.ItemsLayout>
                                     <CollectionView.ItemTemplate >
-                                        <DataTemplate  >
+                                        <DataTemplate x:DataType="vm:ProductViewModel" >
                                             <Border Background="{StaticResource BackgroundBrush  }" StrokeShape="RoundRectangle 5">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
@@ -84,10 +67,17 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                                                         <ColumnDefinition Width="30"/>
                                                         <ColumnDefinition Width="30"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <Label Text="Product Name Info" Grid.Row="0"
+                                                    <Label x:Name="Product Name" Text="{Binding Name}" Grid.Row="0"
                                                                Style="{StaticResource ProductNameStyle}" LineBreakMode="WordWrap"/>
-                                                    <Label Text="Source Info" Grid.Row="1"  Style="{StaticResource ProductSourceStyle}" />
-                                                    <Label Text="Discount Info" Grid.Row="2" Style="{StaticResource ProductDiscountStyle}" />
+                                                    <Label x:Name="Source Info" Text="{Binding Market}" Grid.Row="1"  Style="{StaticResource ProductSourceStyle}" />
+                                                    <Label x:Name="Discount Info" Grid.Row="2" Style="{StaticResource ProductDiscountStyle}" >
+                                                        <Label.Text>
+                                                            <MultiBinding StringFormat="{}{0} - {1}">
+                                                                <Binding Path="DiscountStartDate"/>
+                                                                <Binding Path="DiscountEndDate"/>
+                                                            </MultiBinding>
+                                                        </Label.Text>
+                                                    </Label>
                                                     <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4">
                                                         <ImageButton.Source>
                                                             <FileImageSource File="./Resources/Images/analyze_icon.png"/>
@@ -112,12 +102,10 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
         </CollectionView>
         <Label Text="Przepis:" Style="{StaticResource RecipeInfoLabel}"/>
         <Border Margin="10,0" StrokeThickness="2" StrokeShape="RoundRectangle 5" BackgroundColor="{StaticResource  White}" >
-            <!--<Border.Shadow>
-                <Shadow Brush="Black" Opacity="0.5" Offset="10, 10"  Radius="20"/>
-            </Border.Shadow>-->
-            <Label Text="Treść przepisu"  
+          
+            <Label Text="{Binding RecipeDescription}"  
                VerticalOptions="FillAndExpand" Margin="5" />
         </Border>
-        <!--<Entry></Entry> to make text copyable -->
+       
     </VerticalStackLayout>
 </ContentPage>
