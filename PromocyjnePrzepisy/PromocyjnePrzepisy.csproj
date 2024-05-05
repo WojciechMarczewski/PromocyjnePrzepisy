@@ -93,6 +93,9 @@
 	  <MauiXaml Update="Views\HelpAboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Popups\AddedItemPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\SearchPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -116,5 +119,7 @@
 	<ItemGroup>
 	  <MauiImage Include="Resources\Raw\image_1.jpg" />
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionPromocyjnePrzepisyHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

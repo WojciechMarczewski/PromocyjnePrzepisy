@@ -16,6 +16,6 @@ namespace PromocyjnePrzepisy.ViewModels
             return _recipe.Ingredients;
         }
         public string RecipeDescription { get { return _recipe.Description; } }
-
+        public EatingStyle[] EatingStyles { get { return _recipe.EatingStyleTags; } }
     }
 }

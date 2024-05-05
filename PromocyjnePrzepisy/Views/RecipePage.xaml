@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-x:Class="PromocyjnePrzepisy.RecipePage"
+x:Class="PromocyjnePrzepisy.Views.RecipePage"
 xmlns:v="clr-namespace:PromocyjnePrzepisy.Views"
              xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels"
 Title="RecipePage" Background="{StaticResource BackgroundBrush}" 
@@ -16,7 +16,7 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
             <Image HeightRequest="150"  Aspect="AspectFill" 
                    Source="{Binding Image, Mode=OneWay, Converter={toolkit:ByteArrayToImageSourceConverter}}">
             </Image>
-            <Label Text="{Binding RecipeTitle}" Style="{StaticResource RecipeNameStyle}" VerticalOptions="End"/>
+            <Label Text="{Binding RecipeTitle}" Style="{StaticResource RecipeNameStyle}" VerticalOptions="End" LineBreakMode="WordWrap"/>
         </Grid>
         <Label Text="Składniki:" Style="{StaticResource RecipeInfoLabel}"/>
         <!--Itemssouce to set in future-->
@@ -49,13 +49,13 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                                 </Grid>
                             </toolkit:Expander.Header>
                             <toolkit:Expander.Content>
-                                <CollectionView ItemsSource="{Binding ProductViewModels}"  Margin="5" >
+                                <CollectionView ItemsSource="{Binding ProductViewModels}"  Margin="1" >
                                     <CollectionView.ItemsLayout >
                                         <GridItemsLayout VerticalItemSpacing="2" Orientation="Vertical" />
                                     </CollectionView.ItemsLayout>
                                     <CollectionView.ItemTemplate >
                                         <DataTemplate x:DataType="vm:ProductViewModel" >
-                                            <Border Background="{StaticResource BackgroundBrush  }" StrokeShape="RoundRectangle 5">
+                                            <Border Background="{StaticResource BackgroundBrush  }" StrokeShape="RoundRectangle 5" Margin="5">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition/>
@@ -83,10 +83,11 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                                                             <FileImageSource File="./Resources/Images/analyze_icon.png"/>
                                                         </ImageButton.Source>
                                                     </ImageButton>
-                                                    <ImageButton Grid.RowSpan="3" Grid.Column="2" Margin="4">
+                                                    <ImageButton Grid.RowSpan="3" Grid.Column="2" Margin="4" Command="{Binding AddProductToShoppingListCommand}" CommandParameter="{Binding}">
                                                         <ImageButton.Source>
                                                             <FileImageSource File="./Resources/Images/add_icon.png" />
                                                         </ImageButton.Source>
+                                                        
                                                     </ImageButton>
                                                 </Grid>
                                             </Border>

@@ -2,7 +2,7 @@
 
 namespace PromocyjnePrzepisy.ViewModels
 {
-    public class RecipePageViewModel : BaseViewModel
+    public partial class RecipePageViewModel : BaseViewModel
     {
         private RecipeViewModel _recipeViewModel { get; }
         public RecipePageViewModel(RecipeViewModel recipeViewModel)

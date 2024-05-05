@@ -32,7 +32,7 @@
     <Color x:Key="TransparentWhite">#BFFFFFFF</Color>
     <Color x:Key="DarkOrange">#FFC085</Color>
     <Color x:Key="DarkOrange2">#E45E5E</Color>
-    <Color x:Key="LabelBackground">#59404040</Color>
+    <Color x:Key="LabelBackground">#59FFFFFF</Color>
     <LinearGradientBrush x:Key="ButtonBrush" StartPoint="0,0" EndPoint="0,1">
         <GradientStop Offset="0.0" Color="LightSalmon" />
         <GradientStop Offset="1.0" Color="#937777"/>

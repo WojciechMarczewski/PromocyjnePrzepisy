@@ -36,7 +36,9 @@ namespace PromocyjnePrzepisy
                 .AddSingleton<IIngredientsRepository, IngredientRepository>()
                .AddSingleton<IRecipeProcessingService, RecipeProcessingService>()
                 .AddSingleton<IViewModelService<RecipeViewModel>, MainViewModelService>()
-                .AddSingleton<IRecipeRepository, RecipeRepository>();
+                .AddSingleton<IRecipeRepository, RecipeRepository>()
+                .AddSingleton<IViewModelService<ProductViewModel>, SearchPageViewModelService>();
+
             return builder;
         }
         public static MauiAppBuilder AddViews(this MauiAppBuilder builder)
@@ -52,7 +54,9 @@ namespace PromocyjnePrzepisy
         public static MauiAppBuilder AddViewModels(this MauiAppBuilder builder)
         {
             builder.Services
-                .AddSingleton<MainViewModel>();
+                .AddSingleton<MainViewModel>()
+                .AddSingleton<ShoppingListPageViewModel>()
+                .AddSingleton<SearchPageViewModel>();
             return builder;
         }
     }
