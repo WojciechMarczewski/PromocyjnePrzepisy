@@ -83,7 +83,7 @@
                                         <Label x:Name="DiscountInfo" Grid.Column="1" TextColor="{StaticResource DarkOrange2}" >
                                             <Label.Text>
                                                 <Binding Path="DiscountCountEnding">
-                                                    <Binding.StringFormat>{0} na promocji</Binding.StringFormat>
+                                                    <Binding.StringFormat>{0} w promocyjnej cenie</Binding.StringFormat>
                                                 </Binding>
                                             </Label.Text>
                                         </Label>

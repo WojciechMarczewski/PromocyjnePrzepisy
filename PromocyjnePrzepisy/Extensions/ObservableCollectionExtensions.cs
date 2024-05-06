@@ -12,5 +12,6 @@ namespace PromocyjnePrzepisy.Extensions
                 collection.Add(item);
             }
         }
+
     }
 }

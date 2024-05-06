@@ -12,6 +12,7 @@ namespace PromocyjnePrzepisy.ViewModels
         public string DiscountEndDate { get { return _product.Discount.EndDate.ToString(); } }
         public string Market { get { return _product.Market.ToString(); } }
         public string IngredientTypeName { get { return _product.IngredientName; } }
+
         [RelayCommand]
         public void AddProductToShoppingList(ProductViewModel productViewModel)
         {

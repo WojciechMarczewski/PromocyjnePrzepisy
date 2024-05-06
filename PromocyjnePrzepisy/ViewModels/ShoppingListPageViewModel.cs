@@ -23,7 +23,7 @@ namespace PromocyjnePrzepisy.ViewModels
         {
             ShoppingList.Clear();
         }
-        private void RegisterMessengerRecipient()
+        public void RegisterMessengerRecipient()
         {
             WeakReferenceMessenger.Default.Register<ProductViewModel>(this, (r, msg) =>
             {

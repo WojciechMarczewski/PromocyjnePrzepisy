@@ -6,8 +6,9 @@ namespace PromocyjnePrzepisy.Views
     {
 
 
-        public MainPage(MainViewModel mainViewModel)
+        public MainPage(MainViewModel mainViewModel, ShoppingListPageViewModel shoppingListPageViewModel)
         {
+            //(Lazy Loading issue fix) ShoppingListPageViewModel injection for initialization of messagecenter
             InitializeComponent();
             this.TitleBarView.FindByName<ImageButton>("BackButton").IsVisible = false;
             this.BindingContext = mainViewModel;

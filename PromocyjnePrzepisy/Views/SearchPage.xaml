@@ -17,10 +17,11 @@
         <VerticalStackLayout Grid.Row="0">
             <v:TitleBarView x:Name="TitleBarView" Grid.Row="0" HeightRequest="50"/>
             <Border StrokeShape="RoundRectangle 5" Margin="2">
-        <SearchBar  x:Name="searchBar" Background="White" SearchCommand="{Binding PerformSearchCommand}" 
+        <SearchBar  x:Name="searchBar" Background="White" SearchCommand="{Binding PerformSearchCommand}" Text="{Binding Query}"
                     SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" IsTextPredictionEnabled="True" />
             </Border>
         </VerticalStackLayout>
+        
             <CollectionView ItemsSource="{Binding ProductsCollection}" Margin="5" Grid.Row="2" >
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="2"/>
@@ -65,6 +66,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+      
         </Grid>
    
 </ContentPage>

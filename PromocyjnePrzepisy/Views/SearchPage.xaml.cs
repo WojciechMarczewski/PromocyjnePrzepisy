@@ -1,4 +1,7 @@
+using CommunityToolkit.Maui.Views;
+using CommunityToolkit.Mvvm.Messaging;
 using PromocyjnePrzepisy.ViewModels;
+using PromocyjnePrzepisy.Views.Popups;
 
 namespace PromocyjnePrzepisy.Views;
 
@@ -10,4 +13,13 @@ public partial class SearchPage : ContentPage
         this.TitleBarView.FindByName<ImageButton>("BackButton").IsVisible = false;
         this.BindingContext = searchPageViewModel;
     }
+    private void RegisterMessageRecipient()
+    {
+        WeakReferenceMessenger.Default.Register<string>(this, (sender, message) =>
+        {
+            this.ShowPopup(new AddedItemPopup());
+        });
+    }
+
+
 }
