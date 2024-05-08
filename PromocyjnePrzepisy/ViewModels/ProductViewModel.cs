@@ -20,5 +20,11 @@ namespace PromocyjnePrzepisy.ViewModels
             string messageToUser = "Pomyslnie dodano produkt listy zakupów";
             WeakReferenceMessenger.Default.Send<string>(messageToUser);
         }
+        [RelayCommand]
+        public void ShowProductLeafletImage()
+        {
+            Image image = new Image() { Source = ImageSource.FromUri(new Uri("https://gazetka-com.pl/wp-content/uploads/2024/05/Gazetka-Twoj-Market-od-08.05.2024-do-14.05.2024-545468-1.jpg")) };
+            WeakReferenceMessenger.Default.Send<Image>(image);
+        }
     }
 }

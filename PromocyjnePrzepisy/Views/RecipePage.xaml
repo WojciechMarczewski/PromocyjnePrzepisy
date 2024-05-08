@@ -79,7 +79,7 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                                                             </MultiBinding>
                                                         </Label.Text>
                                                     </Label>
-                                                    <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4">
+                                                    <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4" Command="{Binding ShowProductLeafletImageCommand}">
                                                         <ImageButton.Source>
                                                             <FileImageSource File="./Resources/Images/analyze_icon.png"/>
                                                         </ImageButton.Source>
