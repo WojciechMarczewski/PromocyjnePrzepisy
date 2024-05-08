@@ -41,12 +41,12 @@
                                         </MultiBinding>
                                     </Label.Text>
                                 </Label>
-                                <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4">
+                                <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4" Command="{Binding ShowProductLeafletImageCommand}">
                                 <ImageButton.Source>
-                                    <FileImageSource File="./Resources/Images/analyze_icon.png"/>
+                                    <FileImageSource File="./Resources/Images/analyze_icon.png" />
                                 </ImageButton.Source>
                             </ImageButton>
-                            <ImageButton Grid.RowSpan="3" Grid.Column="2" Margin="4">
+                            <ImageButton Grid.RowSpan="3" Grid.Column="2" Margin="4" Command="{Binding RemoveProductFromShoppingListCommand}" CommandParameter="{Binding }">
                                 <ImageButton.Source>
                                     <FileImageSource File="./Resources/Images/remove_icon.png" />
                                 </ImageButton.Source>

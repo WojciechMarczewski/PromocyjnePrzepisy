@@ -29,6 +29,10 @@ namespace PromocyjnePrzepisy.ViewModels
             {
                 ShoppingList.Add(msg);
             });
+            WeakReferenceMessenger.Default.Register<ProductViewModel, string>(this, "Remove", (r, msg) =>
+            {
+                ShoppingList.Remove(msg);
+            });
         }
     }
 }

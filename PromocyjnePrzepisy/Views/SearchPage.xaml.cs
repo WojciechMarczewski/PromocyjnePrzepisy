@@ -19,6 +19,10 @@ public partial class SearchPage : ContentPage
         {
             this.ShowPopup(new AddedItemPopup());
         });
+        WeakReferenceMessenger.Default.Register<Image>(this, (sender, message) =>
+        {
+            this.ShowPopup(new ProductLeafletImagePopup(message));
+        });
     }
 
 
