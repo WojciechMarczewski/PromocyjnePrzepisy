@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace PromocyjnePrzepisy
+namespace testProject
 {
     public class Program
     {

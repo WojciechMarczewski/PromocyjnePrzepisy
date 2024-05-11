@@ -3,25 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PromocyjnePrzepisy.Views.HelpAboutPage"
              Title="HelpAboutPage" Background="{StaticResource BackgroundBrush}" 
-             xmlns:uc="clr-namespace:PromocyjnePrzepisy.Views.UserControls">
-    <VerticalStackLayout>
-        <uc:TitleView x:Name="TitleView" />
+                xmlns:v="clr-namespace:PromocyjnePrzepisy.Views"
+             xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels"
+             xmlns:si="clr-namespace:PromocyjnePrzepisy.Services.Interfaces">
+    <VerticalStackLayout x:DataType="vm:HelpAboutPageViewModel">
+        <v:TitleBarView x:Name="TitleBarView" />
         <Label Text="Pomoc i Opinie" Style="{StaticResource  RecipeInfoLabel}" HorizontalOptions="Center" Margin="5"/>
         <Border StrokeShape="RoundRectangle 5"  Background="White" Margin="5">
             <VerticalStackLayout HorizontalOptions="Center"  VerticalOptions="FillAndExpand" Margin="5">
                 <Label Text="Wybierz rodzaj zgłoszenia" HorizontalOptions="Center" FontAttributes="Bold"/>
-                <HorizontalStackLayout Spacing="150">
-                    <RadioButton Content="Błąd" FontAttributes="Bold" TextColor="Black"/>
-                    <RadioButton Content="Opinia" FontAttributes="Bold" TextColor="Black"/>
+                <HorizontalStackLayout Spacing="150" RadioButtonGroup.GroupName="TicketType" RadioButtonGroup.SelectedValue="{Binding TicketType}">
+                    <RadioButton  Content="Błąd" FontAttributes="Bold" TextColor="Black"  Value="{x:Static si:TicketType.Bug}"/>
+                    <RadioButton  Content="Opinia" FontAttributes="Bold" TextColor="Black"  Value="{x:Static si:TicketType.Feedback}"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
         <Border StrokeShape="RoundRectangle 5" Background="White" Margin="5">
             <VerticalStackLayout HorizontalOptions="FillAndExpand"  HeightRequest="350" >
                 <Label Text="Treść wiadomości" Margin="5, 5, 0,0" FontAttributes="Bold" />
-                <Entry HeightRequest="300" VerticalTextAlignment="Start"  Margin="5" />
+                <Entry HeightRequest="300" VerticalTextAlignment="Start"  Margin="5" Text="{Binding TicketContent}"/>
             </VerticalStackLayout>
         </Border>
-        <Button Text="Wyślij" HorizontalOptions="Center" Margin="5" HeightRequest="35" Padding="10, 0, 10, 0"/>
+        <Button Text="Wyślij" HorizontalOptions="Center" Margin="5" HeightRequest="35" Padding="10, 0, 10, 0" Command="{Binding SendTicketCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

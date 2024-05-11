@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace PromocyjnePrzepisy
+namespace testProject
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

@@ -6,7 +6,6 @@
         {
             InitializeComponent();
         }
-
         private void Close_Clicked(object sender, EventArgs e)
         {
             Application.Current?.Quit();

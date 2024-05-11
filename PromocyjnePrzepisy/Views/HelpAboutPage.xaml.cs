@@ -1,10 +1,13 @@
+using PromocyjnePrzepisy.ViewModels;
+
 namespace PromocyjnePrzepisy.Views;
 
 public partial class HelpAboutPage : ContentPage
 {
-    public HelpAboutPage()
+    public HelpAboutPage(HelpAboutPageViewModel viewModel)
     {
         InitializeComponent();
-        this.TitleView.FindByName<ImageButton>("BackButton").IsVisible = false;
+        this.TitleBarView.FindByName<ImageButton>("BackButton").IsVisible = false;
+        this.BindingContext = viewModel;
     }
 }

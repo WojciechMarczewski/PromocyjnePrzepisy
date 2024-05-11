@@ -1,70 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PromocyjnePrzepisy.MainPage" Background="{StaticResource BackgroundBrush }"
-             xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels" NavigationPage.HasBackButton="False"
-             xmlns:uc="clr-namespace:PromocyjnePrzepisy.Views.UserControls" Title="MainPage">
-    <ContentPage.Resources>
-        <x:Array x:Key="StaticData" Type="{x:Type vm:CollectionViewItem}">
-            <vm:CollectionViewItem Text="Przepis 1" Source="/Resources/Images/image_1.jpg" DiscountsCount="2" />
-            <vm:CollectionViewItem Text="Przepis 2" Source="/Resources/Images/image_2.jpg" DiscountsCount="1"/>
-            <vm:CollectionViewItem Text="Przepis 3" Source="/Resources/Images/image_3.jpg" DiscountsCount="1"/>
-        </x:Array>
-    </ContentPage.Resources>
-    <VerticalStackLayout  >
-        <uc:TitleView HeightRequest="50" x:Name="TitleView"/>
-        <ScrollView>
-        <VerticalStackLayout Margin="5, 5, 5, 5"
-            Spacing="20">
-            <ScrollView Orientation="Horizontal" HorizontalOptions="Center" >
-            <HorizontalStackLayout  Spacing="5"  HeightRequest="40" VerticalOptions="Start">
-                <Button Text="Wszystko"/>
-                    <Button Text="Biedronka"/>
-                    <Button Text="Lidl"/>
-                    <Button Text="Carrefour"/>
-                    <Button Text="Wegetariańskie"/>
-                    <Button Text="Wegańskie"/>
-                    <Button Text="Mięsne"/>
+             x:Class="PromocyjnePrzepisy.Views.MainPage"
+             xmlns:local="clr-namespace:PromocyjnePrzepisy.ViewModels" NavigationPage.HasBackButton="False"
+             Background="{StaticResource BackgroundBrush}" xmlns:v="clr-namespace:PromocyjnePrzepisy.Views"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels"
+             xmlns:ctrls="clr-namespace:Microsoft.Maui.Controls"
+             xmlns:m="clr-namespace:PromocyjnePrzepisy.Models">
+            
+   <!--<ContentPage.BindingContext>
+        <local:MainViewModel />
+    </ContentPage.BindingContext>-->
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <v:TitleBarView Grid.Row="0"  HeightRequest="50" x:Name="TitleBarView"/>
+        <Grid Grid.Row="1" Margin="5, 5, 5, 5"
+    RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition  Height="*"/>
+                
+            </Grid.RowDefinitions>
+            <ScrollView Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="0" Margin="0, 0, -5, 0" HorizontalScrollBarVisibility="Never">
+                <HorizontalStackLayout  Spacing="5"  HeightRequest="40" VerticalOptions="Start">
+                    <Button Text="Wszystko" Command="{Binding ShowAllRecipesCommand}"/>
+                    <Button Text="Biedronka" Command="{Binding ShowRecipesByMarketCommand}" CommandParameter="{x:Static m:Market.Biedronka}"/>
+                    <Button Text="Lidl" Command="{Binding ShowRecipesByMarketCommand}" CommandParameter="{x:Static m:Market.Lidl}"/>
+                    <Button Text="Carrefour" Command="{Binding ShowRecipesByMarketCommand}" CommandParameter="{x:Static m:Market.Carrefour}"/>
+                    <Button Text="Wegetariańskie" Command="{Binding ShowRecipesByStyleCommand}" CommandParameter="{x:Static m:EatingStyle.Vegetarian}"/>
+                    <Button Text="Wegańskie" Command="{Binding ShowRecipesByStyleCommand}" CommandParameter="{x:Static m:EatingStyle.Vegan}"/>
+                    <Button Text="Z mięsem" Command="{Binding ShowRecipesByStyleCommand}" CommandParameter="{x:Static m:EatingStyle.MeatEater}" Margin="0, 0, 5, 0"/>
                 </HorizontalStackLayout>
             </ScrollView>
-            <CollectionView  ItemsSource="{StaticResource StaticData}"  >
+           
+            <CollectionView x:Name="RecipeCollection" Grid.Row="1" ItemsSource="{Binding RecipeCollection}" VerticalScrollBarVisibility="Always" 
+                             RemainingItemsThreshold="9" x:DataType="vm:MainViewModel" >
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <StackLayout>
+                            <Label Text="Brak przepisów z produktami &#10; na promocji z tego marketu" VerticalOptions="Start" Margin="5" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </ContentView>
+                </CollectionView.EmptyView>
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout VerticalItemSpacing="6" Orientation="Vertical"/>
+                    <GridItemsLayout  VerticalItemSpacing="2" Orientation="Vertical"/>
                 </CollectionView.ItemsLayout>
-                <CollectionView.Shadow>
-                    <Shadow Brush="Black" Opacity="0.4" Radius="5" Offset="5, 5">
+                <!--<CollectionView.Shadow>
+                    <Shadow Brush="Black" Opacity="0.4" Radius="2" Offset="2, 2">
                     </Shadow>
-                </CollectionView.Shadow>
-                <CollectionView.ItemTemplate >
                     
-                    <DataTemplate x:DataType="vm:CollectionViewItem">
-                            
+                </CollectionView.Shadow>-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:RecipeViewModel" >
+                        <VerticalStackLayout >
+                            <!--<Label  Text="{Binding Name}" />
+                            <Image Source="{Binding Source}"/>-->
                             <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" Padding="5">
                                 <Border.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                 </Border.GestureRecognizers>
-                            <StackLayout>
-                                
-                                <Label Style="{StaticResource RecipeNameStyle}" Text="{Binding Text }" FontSize="16" BackgroundColor="Transparent"/>
-                                <Border StrokeShape="RoundRectangle 5"  StrokeThickness="2" Margin="5, 0, 5, 0">
-                                <Image Source="{Binding Source}" HeightRequest="150" Aspect="AspectFill"
-                                       >
-                                </Image>
-                                </Border>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="15"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Margin="5, 0, 0, 0" Text="{Binding DiscountsCount}" TextColor="{StaticResource DarkOrange2}" />
-                                <Label Grid.Column="1" Text="produkty na promocji" TextColor="{StaticResource DarkOrange2}"/>
-                                </Grid>
-                            </StackLayout>
-                        </Border>
+                                <StackLayout>
+
+                                    <Label Style="{StaticResource RecipeNameStyle}" Text="{Binding Name }" FontSize="16" BackgroundColor="Transparent"/>
+                                    <Border StrokeShape="RoundRectangle 5"  StrokeThickness="2" Margin="5, 0, 5, 0">
+                                        <Image Source="{Binding Image, Mode=OneWay, Converter={toolkit:ByteArrayToImageSourceConverter}}" HeightRequest="150" Aspect="AspectFill"
+       >
+                                        </Image>
+                                    </Border>
+                                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                                    <Label Grid.Column="0" Margin="5, 0, 0, 0" Text="{Binding DiscountsCount}" TextColor="{StaticResource DarkOrange2}" />
+
+                                        <Label x:Name="DiscountInfo" Grid.Column="1" TextColor="{StaticResource DarkOrange2}" >
+                                            <Label.Text>
+                                                <Binding Path="DiscountCountEnding">
+                                                    <Binding.StringFormat>{0} w promocyjnej cenie</Binding.StringFormat>
+                                                </Binding>
+                                            </Label.Text>
+                                        </Label>
+                                    </Grid>
+                                </StackLayout>
+                            </Border>
+                        </VerticalStackLayout>
                     </DataTemplate>
+                    
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </VerticalStackLayout>
-        </ScrollView>
-    </VerticalStackLayout>
+           
+        </Grid>
+    </Grid>
+
 </ContentPage>

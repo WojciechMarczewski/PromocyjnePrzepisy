@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PromocyjnePrzepisy.Views.Popups.ProductLeafletImagePopup"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" VerticalOptions="Fill" HorizontalOptions="Fill" Color="AntiqueWhite" >
+    <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ImageButton Grid.Row="0" x:Name="CloseButton" Clicked="CloseButton_Clicked" Source="./Resources/Images/close_icon.png" HorizontalOptions="End"/>
+        <Image x:Name="LeafletImage" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="1">
+                <Image.GestureRecognizers>
+                    <PinchGestureRecognizer PinchUpdated="OnPinchUpdated" />
+                </Image.GestureRecognizers>
+            </Image>
+
+    </Grid>
+</toolkit:Popup>

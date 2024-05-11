@@ -2,30 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PromocyjnePrzepisy.Views.ShoppingListPage"
-             xmlns:uc="clr-namespace:PromocyjnePrzepisy.Views.UserControls" Background="{StaticResource BackgroundBrush}"
+               xmlns:v="clr-namespace:PromocyjnePrzepisy.Views" 
+             xmlns:vm="clr-namespace:PromocyjnePrzepisy.ViewModels"
+             Background="{StaticResource BackgroundBrush}"
              Title="ShoppingListPage">
-    <ContentPage.Resources>
-        <x:Array x:Key="Items" Type="{x:Type x:String}" >
-            <x:String>Nazwa Produktu</x:String>
-            <x:String>Nazwa Produktu</x:String>
-            <x:String>Nazwa Produktu</x:String>
-            <x:String>Nazwa Produktu</x:String>
-            <x:String>Nazwa Produktu</x:String>
-            <x:String>Nazwa Produktu</x:String>
-            <x:String>Nazwa Produktu</x:String>
-        </x:Array>
-    </ContentPage.Resources>
+    
     <ScrollView>
     <VerticalStackLayout >
-        <uc:TitleView x:Name="TitleView"/>
+            <v:TitleBarView x:Name="TitleBarView"/>
         <Label Text="Twoja Lista Zakupów"  Style="{StaticResource RecipeNameStyle}" BackgroundColor="Transparent"
                HorizontalOptions="Center" Margin="5"/>
-        <CollectionView ItemsSource="{StaticResource Items}" Margin="5" >
+        <CollectionView ItemsSource="{Binding ShoppingList}" Margin="5" >
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="2"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="vm:ProductViewModel">
                     <Border Background="{StaticResource White  }" StrokeShape="RoundRectangle 5">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -38,16 +30,23 @@
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
-                            <Label Text="Product Name Info" Grid.Row="0"
+                            <Label Text="{Binding Name }" Grid.Row="0"
                     Style="{StaticResource ProductNameStyle}" LineBreakMode="WordWrap"/>
-                            <Label Text="Source Info" Grid.Row="1"  Style="{StaticResource ProductSourceStyle}" />
-                            <Label Text="Discount Info" Grid.Row="2" Style="{StaticResource ProductDiscountStyle}" />
-                            <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4">
+                            <Label Text="{Binding Market}" Grid.Row="1"  Style="{StaticResource ProductSourceStyle}" />
+                                <Label  Grid.Row="2" Style="{StaticResource ProductDiscountStyle}" >
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="{}{0} - {1}">
+                                            <Binding Path="DiscountStartDate"/>
+                                            <Binding Path="DiscountEndDate"/>
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+                                <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4" Command="{Binding ShowProductLeafletImageCommand}">
                                 <ImageButton.Source>
-                                    <FileImageSource File="./Resources/Images/analyze_icon.png"/>
+                                    <FileImageSource File="./Resources/Images/analyze_icon.png" />
                                 </ImageButton.Source>
                             </ImageButton>
-                            <ImageButton Grid.RowSpan="3" Grid.Column="2" Margin="4">
+                            <ImageButton Grid.RowSpan="3" Grid.Column="2" Margin="4" Command="{Binding RemoveProductFromShoppingListCommand}" CommandParameter="{Binding }">
                                 <ImageButton.Source>
                                     <FileImageSource File="./Resources/Images/remove_icon.png" />
                                 </ImageButton.Source>
@@ -63,7 +62,7 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Text="Wyczyść Listę Zakupów"  HeightRequest="30" Grid.Column="1" Padding="0, 0, 0, 2"/>
+            <Button Text="Wyczyść Listę Zakupów" Command="{Binding ClearShoppingListCommand}"  HeightRequest="30" Grid.Column="1" Padding="0, 0, 0, 2"/>
         </Grid>
     </VerticalStackLayout>
     </ScrollView>

@@ -11,14 +11,14 @@
     <Style TargetType="Label" x:Key="ProductSourceStyle" >
         <Setter Property="FontSize" Value="13"/>
         <Setter Property="Margin" Value="5, 0, 0, 0"/>
-        
+
     </Style>
     <Style TargetType="Label" x:Key="ProductDiscountStyle">
         <Setter Property="FontSize" Value="13"/>
         <Setter Property="TextColor" Value="{StaticResource DarkOrange2}" />
         <Setter Property="Margin" Value="5, 0, 0, 0"/>
     </Style>
-     <Style TargetType="Label" x:Key="RecipeNameStyle">
+    <Style TargetType="Label" x:Key="RecipeNameStyle">
         <Setter Property="FontSize" Value="24" />
         <Setter Property="Margin" Value="5, 0, 0, 1"/>
         <Setter Property="FontAttributes" Value="Bold"/>
@@ -34,7 +34,7 @@
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
     </Style>
-   
+
     <Style TargetType="IndicatorView">
         <Setter Property="IndicatorColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}"/>
         <Setter Property="SelectedIndicatorColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}"/>
@@ -52,7 +52,7 @@
 
     <Style TargetType="Button">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource PrimaryDarkText}}" />
-       <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"-->
+        <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"-->
         <!--<Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush  StartPoint="0,0" EndPoint="0,0">
@@ -290,7 +290,7 @@
                 <VisualStateGroup x:Name="CommonStates">
                     <VisualState x:Name="Checked" >
                         <VisualState.Setters>
-                      
+
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="Unchecked">
@@ -460,7 +460,7 @@
         <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
         <Setter Property="IconColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
         <Setter Property="WidthRequest" Value="0" />
-       
+
     </Style>
 
     <Style TargetType="TabbedPage">

@@ -1,6 +1,11 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+using PromocyjnePrzepisy.DB;
+using PromocyjnePrzepisy.Services;
+using PromocyjnePrzepisy.Services.Interfaces;
+using PromocyjnePrzepisy.Services.Repositories;
+using PromocyjnePrzepisy.ViewModels;
+using PromocyjnePrzepisy.Views;
 namespace PromocyjnePrzepisy
 {
     public static class MauiProgram
@@ -15,17 +20,46 @@ namespace PromocyjnePrzepisy
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .AddServices()
+                .AddViewModels()
+                .AddViews();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-            // Remove Entry control underline
-            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoUnderline", (h, v) =>
-            {
-                h.PlatformView.BackgroundTintList =
-                    Android.Content.Res.ColorStateList.ValueOf(Colors.Transparent.ToAndroid());
-            });
             return builder.Build();
+        }
+        public static MauiAppBuilder AddServices(this MauiAppBuilder builder)
+        {
+            builder.Services.AddSingleton<ShoppingListDatabase>()
+                .AddSingleton<IViewModelDBService<ProductViewModel>, ShoppingListViewModelService>()
+                .AddSingleton<IProductRepository, ProductRepository>()
+                .AddSingleton<IIngredientsRepository, IngredientRepository>()
+               .AddSingleton<IRecipeProcessingService, RecipeProcessingService>()
+                .AddSingleton<IViewModelService<RecipeViewModel>, MainViewModelService>()
+                .AddSingleton<IRecipeRepository, RecipeRepository>()
+                .AddSingleton<IViewModelService<ProductViewModel>, SearchPageViewModelService>()
+                .AddSingleton<ISupportService, AppSupportService>();
+            return builder;
+        }
+        public static MauiAppBuilder AddViews(this MauiAppBuilder builder)
+        {
+            builder.Services
+                .AddTransient<RecipePage>()
+                .AddSingleton<HelpAboutPage>()
+                .AddSingleton<ShoppingListPage>()
+                .AddSingleton<SearchPage>()
+                .AddSingleton<MainPage>();
+            return builder;
+        }
+        public static MauiAppBuilder AddViewModels(this MauiAppBuilder builder)
+        {
+            builder.Services
+                .AddSingleton<MainViewModel>()
+                .AddSingleton<ShoppingListPageViewModel>()
+                .AddSingleton<SearchPageViewModel>()
+                .AddSingleton<HelpAboutPageViewModel>();
+            return builder;
         }
     }
 }

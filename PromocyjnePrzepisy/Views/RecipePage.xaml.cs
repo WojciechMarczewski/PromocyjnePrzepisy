@@ -1,9 +1,27 @@
+using CommunityToolkit.Maui.Views;
+using CommunityToolkit.Mvvm.Messaging;
+using PromocyjnePrzepisy.Views.Popups;
+
 namespace PromocyjnePrzepisy.Views;
 
 public partial class RecipePage : ContentPage
 {
-	public RecipePage()
-	{
-		InitializeComponent();
-	}
+    public RecipePage()
+    {
+        InitializeComponent();
+        RegisterMessageRecipient();
+
+    }
+    private void RegisterMessageRecipient()
+    {
+        WeakReferenceMessenger.Default.Register<string>(this, (sender, message) =>
+        {
+            this.ShowPopup(new AddedItemPopup());
+        });
+        WeakReferenceMessenger.Default.Register<Image>(this, (sender, message) =>
+        {
+            this.ShowPopup(new ProductLeafletImagePopup(message));
+        });
+    }
+
 }

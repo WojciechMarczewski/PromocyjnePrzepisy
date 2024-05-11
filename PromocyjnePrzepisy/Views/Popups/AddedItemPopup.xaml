@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PromocyjnePrzepisy.Views.Popups.AddedItemPopup"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vp="clr-namespace:PromocyjnePrzepisy.Views.Popups" HorizontalOptions="Fill" VerticalOptions="End"
+              
+             >
+    <toolkit:Popup.Resources>
+        <Style TargetType="{x:Type vp:AddedItemPopup}">
+            <Setter Property="VerticalOptions" Value="End" />
+            
+        </Style>
+    </toolkit:Popup.Resources>
+    <VerticalStackLayout HorizontalOptions="Center"  VerticalOptions="Center" >
+        <Label Margin="5"
+            Text="Dodano produkt do listy zakupów"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</toolkit:Popup>
