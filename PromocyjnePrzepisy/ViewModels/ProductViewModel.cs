@@ -31,5 +31,9 @@ namespace PromocyjnePrzepisy.ViewModels
             Image image = new Image() { Source = ImageSource.FromUri(new Uri("https://gazetka-com.pl/wp-content/uploads/2024/05/Gazetka-Twoj-Market-od-08.05.2024-do-14.05.2024-545468-1.jpg")) };
             WeakReferenceMessenger.Default.Send<Image>(image);
         }
+        internal Product GetProduct()
+        {
+            return _product;
+        }
     }
 }

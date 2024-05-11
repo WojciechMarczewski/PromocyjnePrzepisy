@@ -9,9 +9,9 @@ namespace PromocyjnePrzepisy.ViewModels
         public HelpAboutPageViewModel(ISupportService supportServiceObject)
         {
             supportService = supportServiceObject;
-            TicketContent = "";
+
         }
-        private string _ticketContent;
+        private string _ticketContent = "";
         public string TicketContent
         {
             get { return _ticketContent; }

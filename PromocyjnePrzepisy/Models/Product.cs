@@ -1,6 +1,6 @@
 ﻿namespace PromocyjnePrzepisy.Models
 {
-    public class Product(string name, string ingredientName, Discount discount, string pdfFilePath, Market market) : EntityBase
+    public class Product(string name, string ingredientName, Discount discount, string pdfFilePath, Market market)
     {
         public string Name { get; } = name;
         public string IngredientName { get; } = ingredientName;

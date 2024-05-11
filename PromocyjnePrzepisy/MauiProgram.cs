@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using PromocyjnePrzepisy.DB;
 using PromocyjnePrzepisy.Services;
 using PromocyjnePrzepisy.Services.Interfaces;
 using PromocyjnePrzepisy.Services.Repositories;
@@ -30,7 +31,9 @@ namespace PromocyjnePrzepisy
         }
         public static MauiAppBuilder AddServices(this MauiAppBuilder builder)
         {
-            builder.Services.AddSingleton<IProductRepository, ProductRepository>()
+            builder.Services.AddSingleton<ShoppingListDatabase>()
+                .AddSingleton<IViewModelDBService<ProductViewModel>, ShoppingListViewModelService>()
+                .AddSingleton<IProductRepository, ProductRepository>()
                 .AddSingleton<IIngredientsRepository, IngredientRepository>()
                .AddSingleton<IRecipeProcessingService, RecipeProcessingService>()
                 .AddSingleton<IViewModelService<RecipeViewModel>, MainViewModelService>()

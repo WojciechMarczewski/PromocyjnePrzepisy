@@ -10,7 +10,7 @@ public partial class AddedItemPopup : Popup
         this.Dispatcher.StartTimer(TimeSpan.FromSeconds(1.2), () =>
         {
             CloseAsync();
-            return false; // Zwróæ false, aby zatrzymaæ timer
+            return false;
         });
     }
 

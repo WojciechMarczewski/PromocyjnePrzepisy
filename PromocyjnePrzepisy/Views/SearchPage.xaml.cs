@@ -12,6 +12,7 @@ public partial class SearchPage : ContentPage
         InitializeComponent();
         this.TitleBarView.FindByName<ImageButton>("BackButton").IsVisible = false;
         this.BindingContext = searchPageViewModel;
+        RegisterMessageRecipient();
     }
     private void RegisterMessageRecipient()
     {

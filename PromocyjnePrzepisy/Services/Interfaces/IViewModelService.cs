@@ -2,8 +2,8 @@
 
 namespace PromocyjnePrzepisy.Services.Interfaces
 {
-    public interface IViewModelService<BaseViewModel>
+    public interface IViewModelService<T>
     {
-        public ObservableCollection<BaseViewModel> PopulateList();
+        public ObservableCollection<T> PopulateList();
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace PromocyjnePrzepisy.Models
 {
-    public class Recipe(string name, string description, List<Ingredient> ingredients, byte[] image, EatingStyle[]? eatingStyleTags = null) : EntityBase
+    public class Recipe(string name, string description, List<Ingredient> ingredients, byte[] image, EatingStyle[]? eatingStyleTags = null)
     {
         public string Name { get; set; } = name;
         public string Description { get; set; } = description;

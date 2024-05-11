@@ -1,6 +1,6 @@
 ﻿namespace PromocyjnePrzepisy.Models
 {
-    public class Ingredient : EntityBase
+    public class Ingredient
     {
         public string Name { get; }
         public List<Product> Products = new List<Product>();

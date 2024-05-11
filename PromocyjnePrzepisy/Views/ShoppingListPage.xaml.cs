@@ -12,6 +12,7 @@ public partial class ShoppingListPage : ContentPage
         InitializeComponent();
         this.TitleBarView.FindByName<ImageButton>("BackButton").IsVisible = false;
         this.BindingContext = shoppingListPageViewModel;
+        RegisterMessageRecipient();
     }
     public void RegisterMessageRecipient()
     {

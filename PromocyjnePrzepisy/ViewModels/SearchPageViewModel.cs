@@ -14,10 +14,12 @@ namespace PromocyjnePrzepisy.ViewModels
             get { return _query; }
             set
             {
-
-                _query = value;
-                performSearchCommand?.Execute(value);
-                OnPropertyChanged(nameof(Query));
+                if (value is not null)
+                {
+                    _query = value;
+                    performSearchCommand?.Execute(value);
+                    OnPropertyChanged(nameof(Query));
+                }
             }
         }
         public ObservableCollection<ProductViewModel> ProductsCollection { get; set; }
