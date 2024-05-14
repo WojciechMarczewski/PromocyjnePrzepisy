@@ -28,11 +28,9 @@ namespace PromocyjnePrzepisy.ViewModels
             _allProducts = viewModelService.PopulateList();
             ProductsCollection = new ObservableCollection<ProductViewModel>(_allProducts);
         }
-
         [RelayCommand]
         public void PerformSearch(string query)
         {
-
             if (string.IsNullOrEmpty(query))
             {
                 ProductsCollection.Clear();
@@ -49,12 +47,10 @@ namespace PromocyjnePrzepisy.ViewModels
                 {
                     string name = RemoveDiacritics(product.Name).ToLower();
                     string ingredientTypeName = RemoveDiacritics(product.IngredientTypeName).ToLower();
-
                     if (name.Contains(query) || ingredientTypeName.Contains(query))
                     {
                         ProductsCollection.Add(product);
                     }
-
                 }
                 ProductsCollection.Add(_allProducts[0]);
                 ProductsCollection.RemoveAt(ProductsCollection.Count - 1);
@@ -64,7 +60,6 @@ namespace PromocyjnePrzepisy.ViewModels
         {
             var normalizedString = text.Normalize(NormalizationForm.FormD);
             var stringBuilder = new StringBuilder();
-
             foreach (var c in normalizedString)
             {
                 var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
@@ -73,7 +68,6 @@ namespace PromocyjnePrzepisy.ViewModels
                     stringBuilder.Append(c);
                 }
             }
-
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
     }

@@ -13,7 +13,6 @@ public partial class TitleBarView : ContentView
     }
     private async void BackButton_Clicked(object sender, EventArgs e)
     {
-
         await Shell.Current.Navigation.PopAsync();
     }
 }

@@ -16,6 +16,12 @@ namespace PromocyjnePrzepisy.Services
             });
             return productViewModels;
         }
+
+        public Task<ObservableCollection<ProductViewModel>> PopulateListAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public SearchPageViewModelService(IProductRepository productRepository)
         {
             _productRepository = productRepository;

@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-
 namespace PromocyjnePrzepisy.ViewModels
 {
     public abstract class BaseViewModel

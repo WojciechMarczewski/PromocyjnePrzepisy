@@ -1,5 +1,4 @@
 ﻿using PromocyjnePrzepisy.Models;
-
 namespace PromocyjnePrzepisy.ViewModels
 {
     public partial class RecipePageViewModel : BaseViewModel
@@ -24,6 +23,5 @@ namespace PromocyjnePrzepisy.ViewModels
             }
             return viewModels;
         }
-
     }
 }

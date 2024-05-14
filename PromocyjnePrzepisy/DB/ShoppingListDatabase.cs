@@ -1,5 +1,4 @@
 ﻿using SQLite;
-
 namespace PromocyjnePrzepisy.DB
 {
     public class ShoppingListDatabase
@@ -14,7 +13,6 @@ namespace PromocyjnePrzepisy.DB
         }
         public async Task<List<ProductEntity>> GetItemsAsync()
         {
-
             await Init();
             if (Database is null)
                 throw new InvalidOperationException("Couldn't find database.");
@@ -30,7 +28,10 @@ namespace PromocyjnePrzepisy.DB
             await Init();
             return await Database.DeleteAsync(productEntity);
         }
-
-
+        public async Task<int> DeleteAllItemsAsync()
+        {
+            await Init();
+            return await Database.DeleteAllAsync<ProductEntity>();
+        }
     }
 }

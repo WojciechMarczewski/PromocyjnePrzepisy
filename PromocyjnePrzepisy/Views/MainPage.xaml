@@ -37,13 +37,13 @@
                     <Button Text="Z mięsem" Command="{Binding ShowRecipesByStyleCommand}" CommandParameter="{x:Static m:EatingStyle.MeatEater}" Margin="0, 0, 5, 0"/>
                 </HorizontalStackLayout>
             </ScrollView>
-           
+            <ActivityIndicator x:Name="LoadingIndicator" IsRunning="True" Grid.RowSpan="2" Grid.ColumnSpan="2" IsVisible="True" ScaleX="0.5" ScaleY="0.5"/>
             <CollectionView x:Name="RecipeCollection" Grid.Row="1" ItemsSource="{Binding RecipeCollection}" VerticalScrollBarVisibility="Always" 
-                             RemainingItemsThreshold="9" x:DataType="vm:MainViewModel" >
+                             RemainingItemsThreshold="9" x:DataType="vm:MainViewModel" IsVisible="False">
                 <CollectionView.EmptyView>
                     <ContentView>
                         <StackLayout>
-                            <Label Text="Brak przepisów z produktami &#10; na promocji z tego marketu" VerticalOptions="Start" Margin="5" HorizontalOptions="Center"/>
+                            <Label Text="Brak przepisów z produktami &#10; na promocji" VerticalOptions="Start" Margin="5" HorizontalOptions="Center"/>
                         </StackLayout>
                     </ContentView>
                 </CollectionView.EmptyView>

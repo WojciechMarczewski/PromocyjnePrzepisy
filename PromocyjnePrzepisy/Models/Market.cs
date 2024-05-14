@@ -7,6 +7,7 @@
         Aldi,
         Carrefour,
         Strokrotka,
-        Netto
+        Netto,
+        Nieznany
     }
 }

@@ -1,5 +1,4 @@
 ﻿using PromocyjnePrzepisy.Models;
-
 namespace PromocyjnePrzepisy.DB
 {
     public class ProductEntity : EntityBase
@@ -11,9 +10,7 @@ namespace PromocyjnePrzepisy.DB
         public string? DiscountEndDate { get; set; }
         public Market Market { get; set; }
         public string PdfFilePath { get; set; } = "";
-
         public ProductEntity() { }
-
         public ProductEntity(Product product)
         {
             Name = product.Name;
@@ -23,7 +20,6 @@ namespace PromocyjnePrzepisy.DB
             Market = product.Market;
             PdfFilePath = product.PdfFilePath;
         }
-
         public Product ToProduct()
         {
             if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(IngredientName) || string.IsNullOrEmpty(DiscountStartDate)

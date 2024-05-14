@@ -1,17 +1,18 @@
-﻿using PromocyjnePrzepisy.Models;
+﻿using PromocyjnePrzepisy.Helpers;
+using PromocyjnePrzepisy.Models;
 using PromocyjnePrzepisy.Services.Interfaces;
-
 namespace PromocyjnePrzepisy.Services.Repositories
 {
     public class IngredientRepository : IIngredientsRepository
     {
         private List<Ingredient> _ingredients = new List<Ingredient>();
-        private IProductRepository _productRepository;
+        private IIngredientRepositoryService _ingredientRepositoryService;
+        public Task Initialization { get; private set; }
+
 
         public List<Ingredient> GetIngredients(List<string> ingredientsList)
         {
             List<Ingredient> result = new List<Ingredient>();
-
             foreach (string ingredientName in ingredientsList)
             {
                 Ingredient? ingredient = _ingredients.FirstOrDefault(i => i.Name.ToLower().Equals(ingredientName.ToLower()));
@@ -20,23 +21,18 @@ namespace PromocyjnePrzepisy.Services.Repositories
                     result.Add(ingredient);
                 }
             }
-
             return result;
         }
-
-        public IngredientRepository(IProductRepository productRepository)
+        public async Task Init()
         {
-            _productRepository = productRepository;
-            CreateFooData();
+            var list = await _ingredientRepositoryService.GetIngredientsAsync();
+            _ingredients.AddRange(list);
         }
-        private void CreateFooData()
+        public IngredientRepository(IIngredientRepositoryService ingredientRepositoryService)
         {
-            string[] ingredients = ["Mięso mielone wieprzowe", "Cebula", "Czosnek", "Jajko", "Bułka Tarta", "Sól", "Pieprz", "Olej Rzepakowy"];
-            foreach (string ingredientString in ingredients)
-            {
-                _ingredients.Add(new Ingredient(ingredientString, _productRepository.GetProducts(ingredientString)));
-            }
-
+            _ingredientRepositoryService = ingredientRepositoryService;
+            Initialization = Init();
+            AsyncInitialization.Tasks.Add(Initialization);
         }
     }
 }

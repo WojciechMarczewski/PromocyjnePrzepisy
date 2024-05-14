@@ -2,8 +2,8 @@
 
 namespace PromocyjnePrzepisy.Services.Interfaces
 {
-    public interface IRecipeRepository
+    public interface IRecipeRepositoryService
     {
-        public List<Recipe> GetRecipes();
+        Task<IEnumerable<Recipe>> GetRecipesAsync();
     }
 }

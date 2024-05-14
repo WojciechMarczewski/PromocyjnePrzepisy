@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using PromocyjnePrzepisy.Services.Interfaces;
-
 namespace PromocyjnePrzepisy.ViewModels
 {
     public partial class HelpAboutPageViewModel : BaseViewModel
@@ -9,7 +8,6 @@ namespace PromocyjnePrzepisy.ViewModels
         public HelpAboutPageViewModel(ISupportService supportServiceObject)
         {
             supportService = supportServiceObject;
-
         }
         private string _ticketContent = "";
         public string TicketContent
@@ -27,13 +25,10 @@ namespace PromocyjnePrzepisy.ViewModels
         {
             get { return TicketContent.Length >= 10; }
         }
-
         [RelayCommand(CanExecute = nameof(IsSendEnabled))]
         public void SendTicket()
         {
             supportService.SendTicket(TicketType, TicketContent);
         }
-
     }
-
 }

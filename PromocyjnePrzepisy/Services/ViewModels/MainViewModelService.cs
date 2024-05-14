@@ -11,6 +11,12 @@ namespace PromocyjnePrzepisy.Services
 
         public ObservableCollection<RecipeViewModel> PopulateList()
         {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ObservableCollection<RecipeViewModel>> PopulateListAsync()
+        {
+            await _recipeRepository.Initialization;
             ObservableCollection<RecipeViewModel> recipeViewModels = new ObservableCollection<RecipeViewModel>();
             _recipeRepository.GetRecipes().ForEach(recipe =>
             {
@@ -18,5 +24,7 @@ namespace PromocyjnePrzepisy.Services
             });
             return recipeViewModels;
         }
+
+
     }
 }

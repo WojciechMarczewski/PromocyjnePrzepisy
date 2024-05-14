@@ -1,7 +1,5 @@
 using PromocyjnePrzepisy.ViewModels;
-
 namespace PromocyjnePrzepisy.Views;
-
 public partial class HelpAboutPage : ContentPage
 {
     public HelpAboutPage(HelpAboutPageViewModel viewModel)

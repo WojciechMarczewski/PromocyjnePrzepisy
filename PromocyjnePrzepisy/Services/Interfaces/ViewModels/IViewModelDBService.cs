@@ -4,5 +4,6 @@
     {
         public void AddItem(T obj);
         public void RemoveItem(T obj);
+        public void RemoveAllItems();
     }
 }

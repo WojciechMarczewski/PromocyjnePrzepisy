@@ -1,32 +1,25 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
 using CommunityToolkit.Mvvm.Input;
 using PromocyjnePrzepisy.Extensions;
+using PromocyjnePrzepisy.Helpers;
 using PromocyjnePrzepisy.Models;
 using PromocyjnePrzepisy.Services.Interfaces;
 using System.Collections.ObjectModel;
-
 namespace PromocyjnePrzepisy.ViewModels
 {
     public partial class MainViewModel : BaseViewModel
     {
-        private readonly ObservableCollection<RecipeViewModel> _allRecipes;
-
-        public ObservableCollection<RecipeViewModel> RecipeCollection { get; set; }
-
-
+        private ObservableCollection<RecipeViewModel> _allRecipes { get; set; } = new ObservableCollection<RecipeViewModel>();
+        private readonly IViewModelService<RecipeViewModel> _viewModelService;
+        public ObservableCollection<RecipeViewModel> RecipeCollection { get; set; } = new ObservableCollection<RecipeViewModel>();
         public MainViewModel(IViewModelService<RecipeViewModel> viewModelService)
         {
-            _allRecipes = viewModelService.PopulateList().OrderByDescending(x => x.DiscountsCount).ToObservableCollection();
-
-            RecipeCollection = new ObservableCollection<RecipeViewModel>(_allRecipes);
-
-
+            _viewModelService = viewModelService;
         }
         [RelayCommand]
         private async Task ShowRecipesByMarket(Market parameter)
         {
             await FillRecipesFilteredByMarket(parameter);
-
         }
         [RelayCommand]
         private async Task ShowRecipesByStyle(EatingStyle parameter)
@@ -60,9 +53,6 @@ namespace PromocyjnePrzepisy.ViewModels
                 }
             }
             return Task.CompletedTask;
-
-
-
         }
         private Task FillRecipesFilteredByStyle(EatingStyle eatingStyle)
         {
@@ -76,6 +66,14 @@ namespace PromocyjnePrzepisy.ViewModels
             }
             return Task.CompletedTask;
         }
-
+        public async Task FillRecipes()
+        {
+            await AsyncInitialization.EnsureInitializedAsync();
+            _allRecipes = await _viewModelService.PopulateListAsync();
+            _allRecipes = _allRecipes.OrderByDescending(x => x.DiscountsCount).ToObservableCollection();
+            RecipeCollection = new ObservableCollection<RecipeViewModel>(_allRecipes);
+            RecipeCollection.Add(_allRecipes[0]);
+            RecipeCollection.RemoveAt(RecipeCollection.Count - 1);
+        }
     }
 }

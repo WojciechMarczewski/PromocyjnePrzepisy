@@ -33,6 +33,14 @@ namespace PromocyjnePrzepisy.Services
             ProductEntity productEntity = new ProductEntity(productViewModel.GetProduct());
             Task.Run(() => database.SaveItemAsync(productEntity));
         }
+        public void RemoveAllItems()
+        {
+            Task.Run(() => database.DeleteAllItemsAsync());
+        }
 
+        public Task<ObservableCollection<ProductViewModel>> PopulateListAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

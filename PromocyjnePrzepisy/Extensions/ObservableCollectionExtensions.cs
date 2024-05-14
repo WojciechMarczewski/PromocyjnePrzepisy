@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-
 namespace PromocyjnePrzepisy.Extensions
 {
     public static class ObservableCollectionExtensions
@@ -12,6 +11,5 @@ namespace PromocyjnePrzepisy.Extensions
                 collection.Add(item);
             }
         }
-
     }
 }

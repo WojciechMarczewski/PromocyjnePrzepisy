@@ -7,7 +7,5 @@
         public Discount Discount { get; } = discount;
         public Market Market { get; } = market;
         public string PdfFilePath { get; } = pdfFilePath;
-
-
     }
 }

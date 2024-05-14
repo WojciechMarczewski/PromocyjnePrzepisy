@@ -1,6 +1,5 @@
 ﻿using PromocyjnePrzepisy.Models;
 using PromocyjnePrzepisy.Services.Interfaces;
-
 namespace PromocyjnePrzepisy.ViewModels
 {
     public class RecipeViewModel(Recipe recipe, IRecipeProcessingService recipeProcessingService) : BaseViewModel

@@ -7,6 +7,5 @@
         public List<Ingredient> Ingredients { get; set; } = ingredients;
         public byte[] Image { get; set; } = image;
         public EatingStyle[] EatingStyleTags { get; set; } = eatingStyleTags ?? new EatingStyle[] { EatingStyle.None };
-
     }
 }

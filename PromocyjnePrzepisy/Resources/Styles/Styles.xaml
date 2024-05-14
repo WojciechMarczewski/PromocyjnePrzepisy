@@ -31,8 +31,8 @@
         <Setter Property="FontAttributes" Value="Bold" />
     </Style>
     <Style TargetType="ActivityIndicator">
-        <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
-        <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
+        <Setter Property="Color" Value="{StaticResource Gray300}" />
+        
     </Style>
 
     <Style TargetType="IndicatorView">

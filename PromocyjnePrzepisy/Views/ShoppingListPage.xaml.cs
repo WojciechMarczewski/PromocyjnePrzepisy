@@ -21,4 +21,5 @@ public partial class ShoppingListPage : ContentPage
             this.ShowPopup(new ProductLeafletImagePopup(message));
         });
     }
+
 }

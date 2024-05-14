@@ -1,16 +1,13 @@
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.Messaging;
 using PromocyjnePrzepisy.Views.Popups;
-
 namespace PromocyjnePrzepisy.Views;
-
 public partial class RecipePage : ContentPage
 {
     public RecipePage()
     {
         InitializeComponent();
         RegisterMessageRecipient();
-
     }
     private void RegisterMessageRecipient()
     {
@@ -23,5 +20,4 @@ public partial class RecipePage : ContentPage
             this.ShowPopup(new ProductLeafletImagePopup(message));
         });
     }
-
 }

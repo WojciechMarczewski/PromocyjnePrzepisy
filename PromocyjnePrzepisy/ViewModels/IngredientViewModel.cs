@@ -1,5 +1,4 @@
 ﻿using PromocyjnePrzepisy.Models;
-
 namespace PromocyjnePrzepisy.ViewModels
 {
     public class IngredientViewModel : BaseViewModel
@@ -13,7 +12,6 @@ namespace PromocyjnePrzepisy.ViewModels
         {
             _ingredient = ingredient;
             ProductViewModels = CreateProductViewModels();
-
         }
         private List<ProductViewModel> CreateProductViewModels()
         {

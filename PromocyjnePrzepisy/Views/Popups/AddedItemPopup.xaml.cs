@@ -1,7 +1,5 @@
 using CommunityToolkit.Maui.Views;
-
 namespace PromocyjnePrzepisy.Views.Popups;
-
 public partial class AddedItemPopup : Popup
 {
     public AddedItemPopup()
@@ -13,6 +11,4 @@ public partial class AddedItemPopup : Popup
             return false;
         });
     }
-
-
 }

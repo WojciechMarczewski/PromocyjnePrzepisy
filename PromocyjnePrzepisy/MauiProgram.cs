@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using PromocyjnePrzepisy.DB;
+using PromocyjnePrzepisy.HttpServices;
 using PromocyjnePrzepisy.Services;
 using PromocyjnePrzepisy.Services.Interfaces;
 using PromocyjnePrzepisy.Services.Repositories;
@@ -31,15 +32,19 @@ namespace PromocyjnePrzepisy
         }
         public static MauiAppBuilder AddServices(this MauiAppBuilder builder)
         {
-            builder.Services.AddSingleton<ShoppingListDatabase>()
-                .AddSingleton<IViewModelDBService<ProductViewModel>, ShoppingListViewModelService>()
+            builder.Services.AddSingleton<HttpService>()
+                .AddSingleton<IProductRepositoryService, ProductRepositoryService>()
+                .AddSingleton<IIngredientRepositoryService, IngredientRepositoryService>()
+                .AddSingleton<IRecipeRepositoryService, RecipeRepositoryService>()
+                .AddSingleton<ShoppingListDatabase>()
                 .AddSingleton<IProductRepository, ProductRepository>()
                 .AddSingleton<IIngredientsRepository, IngredientRepository>()
-               .AddSingleton<IRecipeProcessingService, RecipeProcessingService>()
-                .AddSingleton<IViewModelService<RecipeViewModel>, MainViewModelService>()
                 .AddSingleton<IRecipeRepository, RecipeRepository>()
                 .AddSingleton<IViewModelService<ProductViewModel>, SearchPageViewModelService>()
-                .AddSingleton<ISupportService, AppSupportService>();
+                .AddSingleton<ISupportService, AppSupportService>()
+                .AddSingleton<IViewModelDBService<ProductViewModel>, ShoppingListViewModelService>()
+                    .AddSingleton<IRecipeProcessingService, RecipeProcessingService>()
+                 .AddSingleton<IViewModelService<RecipeViewModel>, MainViewModelService>();
             return builder;
         }
         public static MauiAppBuilder AddViews(this MauiAppBuilder builder)
