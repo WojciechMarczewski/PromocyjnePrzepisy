@@ -7,7 +7,7 @@ namespace PromocyjnePrzepisy.ViewModels
 {
     public partial class SearchPageViewModel : BaseViewModel
     {
-        private readonly ObservableCollection<ProductViewModel> _allProducts;
+        private ObservableCollection<ProductViewModel> _allProducts { get; set; }
         private string _query = "";
         public string? Query
         {
@@ -52,8 +52,7 @@ namespace PromocyjnePrzepisy.ViewModels
                         ProductsCollection.Add(product);
                     }
                 }
-                ProductsCollection.Add(_allProducts[0]);
-                ProductsCollection.RemoveAt(ProductsCollection.Count - 1);
+                RefreshCollection();
             }
         }
         private string RemoveDiacritics(string text)
@@ -69,6 +68,11 @@ namespace PromocyjnePrzepisy.ViewModels
                 }
             }
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
+        private void RefreshCollection()
+        {
+            ProductsCollection.Add(_allProducts[0]);
+            ProductsCollection.RemoveAt(ProductsCollection.Count - 1);
         }
     }
 }

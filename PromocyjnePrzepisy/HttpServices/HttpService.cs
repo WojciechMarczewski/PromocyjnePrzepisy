@@ -1,5 +1,7 @@
 ﻿using PromocyjnePrzepisy.HttpServices.DTOs;
+using PromocyjnePrzepisy.Models;
 using System.Diagnostics;
+using System.Text;
 using System.Text.Json;
 namespace PromocyjnePrzepisy.HttpServices
 {
@@ -10,6 +12,7 @@ namespace PromocyjnePrzepisy.HttpServices
         private readonly string recipesApiURL = "api/recipes/";
         private readonly string ingredientsApiURL = "api/ingredients/";
         private readonly string productsApiURL = "api/products/";
+        private readonly string reportsApiURL = "api/reports";
         public HttpService()
         {
         }
@@ -55,6 +58,25 @@ namespace PromocyjnePrzepisy.HttpServices
                 Debug.WriteLine(ex);
             }
             return recipeDTOs;
+        }
+        public async Task SendReportAsync(Report report)
+        {
+            try
+            {
+                var json = JsonSerializer.Serialize(report);
+
+                StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await _httpClient.PostAsync(baseAddress + reportsApiURL, stringContent).ConfigureAwait(false);
+                response.EnsureSuccessStatusCode();
+            }
+            catch (HttpRequestException ex)
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
         private HttpMessageHandler GetHttpMessageHandler()
         {

@@ -17,9 +17,19 @@ namespace PromocyjnePrzepisy.Services
             return productViewModels;
         }
 
-        public Task<ObservableCollection<ProductViewModel>> PopulateListAsync()
+        public async Task<ObservableCollection<ProductViewModel>> PopulateListAsync()
         {
-            throw new NotImplementedException();
+            ObservableCollection<ProductViewModel> productViewModels = new ObservableCollection<ProductViewModel>();
+            await Task.Run(() =>
+            {
+
+                _productRepository.GetAllProducts().ForEach(product =>
+                {
+                    productViewModels.Add(new ProductViewModel(product));
+                });
+
+            });
+            return productViewModels;
         }
 
         public SearchPageViewModelService(IProductRepository productRepository)

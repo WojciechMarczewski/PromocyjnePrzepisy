@@ -17,12 +17,11 @@
         <VerticalStackLayout Grid.Row="0">
             <v:TitleBarView x:Name="TitleBarView" Grid.Row="0" HeightRequest="50"/>
             <Border StrokeShape="RoundRectangle 5" Margin="2">
-        <SearchBar  x:Name="searchBar" Background="White" SearchCommand="{Binding PerformSearchCommand}" Text="{Binding Query}"
+                <SearchBar  x:Name="searchBar" Background="White" SearchCommand="{Binding PerformSearchCommand}" Text="{Binding Query}"
                     SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" IsTextPredictionEnabled="True" />
             </Border>
         </VerticalStackLayout>
-        
-            <CollectionView ItemsSource="{Binding ProductsCollection}" Margin="5" Grid.Row="2" >
+        <CollectionView  ItemsSource="{Binding ProductsCollection}" Margin="5" Grid.Row="2" >
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="2"/>
             </CollectionView.ItemsLayout>
@@ -51,7 +50,7 @@
                                     </MultiBinding>
                                 </Label.Text>
                             </Label>
-                            <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4" Command="{Binding ShowProductLeafletImageCommand}">
+                            <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4" Command="{Binding ShowProductLeafletImageCommand}" CommandParameter="SearchPage">
                                 <ImageButton.Source>
                                     <FileImageSource File="./Resources/Images/analyze_icon.png"/>
                                 </ImageButton.Source>

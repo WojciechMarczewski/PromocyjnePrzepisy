@@ -7,5 +7,6 @@ namespace PromocyjnePrzepisy.Services.Interfaces
         public List<Product>? GetProducts(string ingredientName);
         public List<Product> GetAllProducts();
         Task Init();
+
     }
 }

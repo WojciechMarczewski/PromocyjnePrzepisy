@@ -9,26 +9,26 @@ namespace PromocyjnePrzepisy.ViewModels
         {
             supportService = supportServiceObject;
         }
-        private string _ticketContent = "";
-        public string TicketContent
+        private string _reportContent = "";
+        public string ReportContent
         {
-            get { return _ticketContent; }
+            get { return _reportContent; }
             set
             {
-                _ticketContent = value;
-                OnPropertyChanged(nameof(TicketContent));
-                this.SendTicketCommand.NotifyCanExecuteChanged();
+                _reportContent = value;
+                OnPropertyChanged(nameof(ReportContent));
+                this.SendReportCommand.NotifyCanExecuteChanged();
             }
         }
-        public TicketType TicketType { get; set; } = TicketType.Bug;
+        public ReportType ReportType { get; set; } = ReportType.Bug;
         public bool IsSendEnabled
         {
-            get { return TicketContent.Length >= 10; }
+            get { return ReportContent.Length >= 10; }
         }
         [RelayCommand(CanExecute = nameof(IsSendEnabled))]
-        public void SendTicket()
+        public async Task SendReport()
         {
-            supportService.SendTicket(TicketType, TicketContent);
+            await supportService.SendReportAsync(ReportType, ReportContent);
         }
     }
 }

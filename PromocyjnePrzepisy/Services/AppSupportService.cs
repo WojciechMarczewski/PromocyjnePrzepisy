@@ -1,12 +1,28 @@
-﻿using PromocyjnePrzepisy.Services.Interfaces;
+﻿using PromocyjnePrzepisy.HttpServices;
+using PromocyjnePrzepisy.Models;
+using PromocyjnePrzepisy.Services.Interfaces;
+using System.Diagnostics;
 
 namespace PromocyjnePrzepisy.Services
 {
     public class AppSupportService : ISupportService
     {
-        public void SendTicket(TicketType type, string content)
+        private readonly HttpService _httpService;
+        public AppSupportService(HttpService httpService)
         {
-            throw new NotImplementedException();
+            _httpService = httpService;
+        }
+        public async Task SendReportAsync(ReportType type, string content)
+        {
+            Report report = new Report(type, content);
+            try
+            {
+                await _httpService.SendReportAsync(report);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }

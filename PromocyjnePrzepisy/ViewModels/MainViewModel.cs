@@ -72,8 +72,21 @@ namespace PromocyjnePrzepisy.ViewModels
             _allRecipes = await _viewModelService.PopulateListAsync();
             _allRecipes = _allRecipes.OrderByDescending(x => x.DiscountsCount).ToObservableCollection();
             RecipeCollection = new ObservableCollection<RecipeViewModel>(_allRecipes);
+            RefreshCollection();
+        }
+        private void RefreshCollection()
+        {
             RecipeCollection.Add(_allRecipes[0]);
             RecipeCollection.RemoveAt(RecipeCollection.Count - 1);
+        }
+        //Fix for empty image on mainpage after page navigation
+        public void RefreshImagesOnAppearing()
+        {
+
+            foreach (var recipe in RecipeCollection)
+            {
+                recipe.OnImageRefresh();
+            }
         }
     }
 }

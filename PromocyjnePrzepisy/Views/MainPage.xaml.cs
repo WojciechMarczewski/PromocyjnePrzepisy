@@ -4,12 +4,14 @@ namespace PromocyjnePrzepisy.Views
     public partial class MainPage : ContentPage
     {
         private bool hasAppearedBefore = false;
+
         public MainPage(MainViewModel mainViewModel, ShoppingListPageViewModel shoppingListPageViewModel)
         {
             //(Lazy Loading issue fix) ShoppingListPageViewModel injection for initialization of messagecenter
             InitializeComponent();
             this.TitleBarView.FindByName<ImageButton>("BackButton").IsVisible = false;
             this.BindingContext = mainViewModel;
+
         }
         private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {
@@ -41,6 +43,16 @@ namespace PromocyjnePrzepisy.Views
                 RecipeCollection.IsVisible = true;
                 hasAppearedBefore = true;
             }
+            if (hasAppearedBefore)
+            {
+                var viewModel = BindingContext as MainViewModel;
+                if (viewModel != null)
+                {
+                    viewModel.RefreshImagesOnAppearing();
+                }
+            }
+
+
         }
     }
 }

@@ -16,7 +16,14 @@
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="2"/>
             </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <StackLayout>
+                            <Label Text="Twoja lista zakupów jest pusta" VerticalOptions="Center" Margin="20" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </ContentView>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="vm:ProductViewModel">
                     <Border Background="{StaticResource White  }" StrokeShape="RoundRectangle 5">
                         <Grid>
@@ -41,7 +48,7 @@
                                         </MultiBinding>
                                     </Label.Text>
                                 </Label>
-                                <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4" Command="{Binding ShowProductLeafletImageCommand}">
+                                <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4" Command="{Binding ShowProductLeafletImageCommand}" CommandParameter="ShoppingListPage">
                                 <ImageButton.Source>
                                     <FileImageSource File="./Resources/Images/analyze_icon.png" />
                                 </ImageButton.Source>

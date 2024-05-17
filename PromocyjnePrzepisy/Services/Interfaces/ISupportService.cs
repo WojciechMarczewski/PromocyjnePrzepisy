@@ -2,9 +2,9 @@
 {
     public interface ISupportService
     {
-        public void SendTicket(TicketType type, string content);
+        public Task SendReportAsync(ReportType type, string content);
     }
-    public enum TicketType
+    public enum ReportType
     {
         Feedback,
         Bug

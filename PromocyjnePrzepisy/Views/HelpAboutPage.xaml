@@ -12,18 +12,18 @@
         <Border StrokeShape="RoundRectangle 5"  Background="White" Margin="5">
             <VerticalStackLayout HorizontalOptions="Center"  VerticalOptions="FillAndExpand" Margin="5">
                 <Label Text="Wybierz rodzaj zgłoszenia" HorizontalOptions="Center" FontAttributes="Bold"/>
-                <HorizontalStackLayout Spacing="150" RadioButtonGroup.GroupName="TicketType" RadioButtonGroup.SelectedValue="{Binding TicketType}">
-                    <RadioButton  Content="Błąd" FontAttributes="Bold" TextColor="Black"  Value="{x:Static si:TicketType.Bug}"/>
-                    <RadioButton  Content="Opinia" FontAttributes="Bold" TextColor="Black"  Value="{x:Static si:TicketType.Feedback}"/>
+                <HorizontalStackLayout Spacing="150" RadioButtonGroup.GroupName="TicketType" RadioButtonGroup.SelectedValue="{Binding ReportType}">
+                    <RadioButton  Content="Błąd" FontAttributes="Bold" TextColor="Black"  Value="{x:Static si:ReportType.Bug}"/>
+                    <RadioButton  Content="Opinia" FontAttributes="Bold" TextColor="Black"  Value="{x:Static si:ReportType.Feedback}"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
         <Border StrokeShape="RoundRectangle 5" Background="White" Margin="5">
             <VerticalStackLayout HorizontalOptions="FillAndExpand"  HeightRequest="350" >
                 <Label Text="Treść wiadomości" Margin="5, 5, 0,0" FontAttributes="Bold" />
-                <Entry HeightRequest="300" VerticalTextAlignment="Start"  Margin="5" Text="{Binding TicketContent}"/>
+                <Entry HeightRequest="300" VerticalTextAlignment="Start"  Margin="5" Text="{Binding ReportContent}"/>
             </VerticalStackLayout>
         </Border>
-        <Button Text="Wyślij" HorizontalOptions="Center" Margin="5" HeightRequest="35" Padding="10, 0, 10, 0" Command="{Binding SendTicketCommand}"/>
+        <Button Text="Wyślij" HorizontalOptions="Center" Margin="5" HeightRequest="35" Padding="10, 0, 10, 0" Command="{Binding SendReportCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -43,7 +43,8 @@
                 <CollectionView.EmptyView>
                     <ContentView>
                         <StackLayout>
-                            <Label Text="Brak przepisów z produktami &#10; na promocji" VerticalOptions="Start" Margin="5" HorizontalOptions="Center"/>
+                            <Label Text="Brak przepisów z produktami na promocji" VerticalOptions="Start" Margin="5"
+                             HorizontalOptions="Center" LineBreakMode="WordWrap" />
                         </StackLayout>
                     </ContentView>
                 </CollectionView.EmptyView>

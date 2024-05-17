@@ -26,7 +26,7 @@ namespace PromocyjnePrzepisy.Services.Repositories
 
         public List<Product> GetProducts(string ingredientName)
         {
-            return _products.Where(p => p.IngredientName.ToLower().Equals(ingredientName.ToLower())).ToList();
+            return _products.Where(p => p.IngredientName.ToLower().Contains(ingredientName.ToLower())).ToList();
         }
 
 

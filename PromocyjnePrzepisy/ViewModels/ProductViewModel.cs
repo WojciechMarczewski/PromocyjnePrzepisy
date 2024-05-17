@@ -24,10 +24,10 @@ namespace PromocyjnePrzepisy.ViewModels
             WeakReferenceMessenger.Default.Send<ProductViewModel, string>(productViewModel, "Remove");
         }
         [RelayCommand]
-        public void ShowProductLeafletImage()
+        public void ShowProductLeafletImage(string commandSender)
         {
             Image image = new Image() { Source = ImageSource.FromUri(new Uri("https://gazetka-com.pl/wp-content/uploads/2024/05/Gazetka-Twoj-Market-od-08.05.2024-do-14.05.2024-545468-1.jpg")) };
-            WeakReferenceMessenger.Default.Send<Image>(image);
+            WeakReferenceMessenger.Default.Send<Image, string>(image, commandSender);
         }
         internal Product GetProduct()
         {

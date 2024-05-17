@@ -20,13 +20,13 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
         </Grid>
         <Label Text="Składniki:" Style="{StaticResource RecipeInfoLabel}"/>
         <!--Itemssouce to set in future-->
-        <CollectionView ItemsSource="{Binding Ingredients}" Margin="5, 5, 10, 5" >
+        <CollectionView ItemsSource="{Binding Ingredients}" Margin="10, 5, 10, 5" >
             <CollectionView.ItemsLayout>
                 <GridItemsLayout VerticalItemSpacing="2" Orientation="Vertical"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="vm:IngredientViewModel">
-                    <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" StrokeThickness="2">
+                    <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" StrokeThickness="0.2">
                         <toolkit:Expander x:Name="Exp" Grid.Row="1" Grid.ColumnSpan="2">
                             <toolkit:Expander.Header>
                                 <Grid>
@@ -56,7 +56,7 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                                     </CollectionView.ItemsLayout>
                                     <CollectionView.ItemTemplate >
                                         <DataTemplate x:DataType="vm:ProductViewModel" >
-                                            <Border Background="{StaticResource BackgroundBrush  }" StrokeShape="RoundRectangle 5" Margin="5">
+                                            <Border Background="{StaticResource ExpanderElementBrush }" StrokeShape="RoundRectangle 5"  Margin="5">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition/>
@@ -79,7 +79,7 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                                                             </MultiBinding>
                                                         </Label.Text>
                                                     </Label>
-                                                    <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4" Command="{Binding ShowProductLeafletImageCommand}">
+                                                    <ImageButton Grid.RowSpan="3" Grid.Column="1" Margin="4, 4, 7, 4" Command="{Binding ShowProductLeafletImageCommand}" CommandParameter="RecipePage">
                                                         <ImageButton.Source>
                                                             <FileImageSource File="./Resources/Images/analyze_icon.png"/>
                                                         </ImageButton.Source>
@@ -103,7 +103,7 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
             </CollectionView.ItemTemplate>
         </CollectionView>
         <Label Text="Przepis:" Style="{StaticResource RecipeInfoLabel}"/>
-        <Border Margin="10,0" StrokeThickness="2" StrokeShape="RoundRectangle 5" BackgroundColor="{StaticResource  White}" >
+        <Border Margin="10,0,10,0" StrokeThickness="0.2" StrokeShape="RoundRectangle 5" BackgroundColor="{StaticResource  White}" >
           
             <Label Text="{Binding RecipeDescription}"  
                VerticalOptions="FillAndExpand" Margin="5" />

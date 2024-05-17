@@ -16,7 +16,7 @@ public partial class ShoppingListPage : ContentPage
     }
     public void RegisterMessageRecipient()
     {
-        WeakReferenceMessenger.Default.Register<Image>(this, (sender, message) =>
+        WeakReferenceMessenger.Default.Register<Image, string>(this, "ShoppingListPage", (sender, message) =>
         {
             this.ShowPopup(new ProductLeafletImagePopup(message));
         });

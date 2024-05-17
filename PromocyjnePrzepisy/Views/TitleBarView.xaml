@@ -13,7 +13,7 @@
                 </ImageButton.Shadow>
             </ImageButton>
             <Label Grid.Column="1" Text="Promocyjne Przepisy" HorizontalOptions="Center" 
-                   VerticalOptions="Center" FontSize="30" FontAttributes="Bold">
+                   VerticalOptions="Center" FontSize="26" FontAttributes="Bold" LineBreakMode="NoWrap">
                 <Label.Shadow>
                     <Shadow Brush="Black" Radius="80"  Offset="5, 15"/>
                 </Label.Shadow>

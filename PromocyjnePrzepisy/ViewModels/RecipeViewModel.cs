@@ -2,7 +2,7 @@
 using PromocyjnePrzepisy.Services.Interfaces;
 namespace PromocyjnePrzepisy.ViewModels
 {
-    public class RecipeViewModel(Recipe recipe, IRecipeProcessingService recipeProcessingService) : BaseViewModel
+    public class RecipeViewModel(Recipe recipe, IRecipeProcessingService recipeProcessingService) : BindableObject
     {
         public string Name { get { return _recipe.Name; } }
         public byte[] Image { get { return _recipe.Image; } }
@@ -16,5 +16,9 @@ namespace PromocyjnePrzepisy.ViewModels
         }
         public string RecipeDescription { get { return _recipe.Description; } }
         public EatingStyle[] EatingStyles { get { return _recipe.EatingStyleTags; } }
+        public void OnImageRefresh()
+        {
+            OnPropertyChanged(nameof(Image));
+        }
     }
 }

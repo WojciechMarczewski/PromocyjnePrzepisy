@@ -45,6 +45,7 @@
         <GradientStop Offset="0.0" Color="Beige"/>
         <GradientStop Offset="1.0" Color="LightSalmon" />
     </LinearGradientBrush>
+    <SolidColorBrush x:Key="ExpanderElementBrush" Color="WhiteSmoke" />
     <LinearGradientBrush x:Key="BackgroundBrush" >
         <GradientStop Offset="0.0" Color="{StaticResource LightCreme}" />
         <GradientStop Offset="1.0" Color="{StaticResource LightCreme2}"/>

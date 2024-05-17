@@ -15,7 +15,7 @@ public partial class RecipePage : ContentPage
         {
             this.ShowPopup(new AddedItemPopup());
         });
-        WeakReferenceMessenger.Default.Register<Image>(this, (sender, message) =>
+        WeakReferenceMessenger.Default.Register<Image, string>(this, "RecipePage", (sender, message) =>
         {
             this.ShowPopup(new ProductLeafletImagePopup(message));
         });

@@ -44,7 +44,7 @@
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.jpg" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" BaseSize="256,256" Resize="true" Color="#FFA07A" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" BaseSize="256,256" Resize="true" Color="#FFB07A" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -96,9 +96,6 @@
 	  <MauiXaml Update="Views\HelpAboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Loading.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\Popups\AddedItemPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -129,6 +126,6 @@
 	  <MauiImage Include="Resources\Raw\image_1.jpg" />
 	</ItemGroup>
 
-	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionPromocyjnePrzepisyHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+	
 
 </Project>
