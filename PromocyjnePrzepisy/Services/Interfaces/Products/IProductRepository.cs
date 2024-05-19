@@ -2,7 +2,7 @@
 
 namespace PromocyjnePrzepisy.Services.Interfaces
 {
-    public interface IProductRepository
+    public interface IProductRepository : IAsyncInitialization
     {
         public List<Product>? GetProducts(string ingredientName);
         public List<Product> GetAllProducts();

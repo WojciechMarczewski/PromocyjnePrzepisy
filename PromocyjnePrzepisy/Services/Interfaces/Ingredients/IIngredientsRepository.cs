@@ -2,7 +2,7 @@
 
 namespace PromocyjnePrzepisy.Services.Interfaces
 {
-    public interface IIngredientsRepository
+    public interface IIngredientsRepository : IAsyncInitialization
     {
         public List<Ingredient> GetIngredients(List<string> ingredients);
         Task Init();

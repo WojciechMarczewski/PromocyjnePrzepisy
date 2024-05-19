@@ -6,10 +6,10 @@ public partial class ProductLeafletImagePopup : Popup
     double startScale = 1;
     double xOffset = 0;
     double yOffset = 0;
-    public ProductLeafletImagePopup(Image image)
+    public ProductLeafletImagePopup(byte[] bytes)
     {
         InitializeComponent();
-        this.LeafletImage.Source = image.Source;
+        this.LeafletImage.Source = ImageSource.FromStream(() => new MemoryStream(bytes));
     }
     private void CloseButton_Clicked(object sender, EventArgs e)
     {

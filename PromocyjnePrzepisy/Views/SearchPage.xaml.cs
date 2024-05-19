@@ -7,7 +7,6 @@ namespace PromocyjnePrzepisy.Views;
 
 public partial class SearchPage : ContentPage
 {
-    private bool hasAppearedBefore = false;
     public SearchPage(SearchPageViewModel searchPageViewModel)
     {
         InitializeComponent();
@@ -21,7 +20,7 @@ public partial class SearchPage : ContentPage
         {
             this.ShowPopup(new AddedItemPopup());
         });
-        WeakReferenceMessenger.Default.Register<Image, string>(this, "SearchPage", (sender, message) =>
+        WeakReferenceMessenger.Default.Register<byte[], string>(this, "SearchPage", (sender, message) =>
         {
             this.ShowPopup(new ProductLeafletImagePopup(message));
         });

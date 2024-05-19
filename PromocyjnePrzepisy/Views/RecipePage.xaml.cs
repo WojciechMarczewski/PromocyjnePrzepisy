@@ -13,11 +13,12 @@ public partial class RecipePage : ContentPage
     {
         WeakReferenceMessenger.Default.Register<string>(this, (sender, message) =>
         {
-            this.ShowPopup(new AddedItemPopup());
+            this.ShowPopupAsync(new AddedItemPopup());
         });
-        WeakReferenceMessenger.Default.Register<Image, string>(this, "RecipePage", (sender, message) =>
+        WeakReferenceMessenger.Default.Register<byte[], string>(this, "RecipePage", (sender, message) =>
         {
-            this.ShowPopup(new ProductLeafletImagePopup(message));
+            this.ShowPopupAsync(new ProductLeafletImagePopup(message));
+
         });
     }
 }

@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using PromocyjnePrzepisy.Helpers;
+using PromocyjnePrzepisy.HttpServices;
 using PromocyjnePrzepisy.Models;
 namespace PromocyjnePrzepisy.ViewModels
 {
@@ -24,10 +26,18 @@ namespace PromocyjnePrzepisy.ViewModels
             WeakReferenceMessenger.Default.Send<ProductViewModel, string>(productViewModel, "Remove");
         }
         [RelayCommand]
-        public void ShowProductLeafletImage(string commandSender)
+        public async Task ShowProductLeafletImage(string commandSender)
         {
-            Image image = new Image() { Source = ImageSource.FromUri(new Uri("https://gazetka-com.pl/wp-content/uploads/2024/05/Gazetka-Twoj-Market-od-08.05.2024-do-14.05.2024-545468-1.jpg")) };
-            WeakReferenceMessenger.Default.Send<Image, string>(image, commandSender);
+            byte[]? imageBytes = null;
+            var httpService = ServiceHelper.GetService<HttpService>();
+            if (httpService != null)
+            {
+                imageBytes = await httpService.GetLeafletImageAsync(_product.LeafletImageId);
+            }
+            if (imageBytes != null)
+            {
+                WeakReferenceMessenger.Default.Send<byte[], string>(imageBytes, commandSender);
+            }
         }
         internal Product GetProduct()
         {

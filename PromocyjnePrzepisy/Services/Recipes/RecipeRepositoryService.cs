@@ -1,4 +1,5 @@
 ﻿
+using PromocyjnePrzepisy.Helpers;
 using PromocyjnePrzepisy.HttpServices;
 using PromocyjnePrzepisy.HttpServices.DTOs;
 using PromocyjnePrzepisy.Models;
@@ -25,6 +26,7 @@ namespace PromocyjnePrzepisy.Services
             var recipes = new List<Recipe>();
             if (list != null)
             {
+                await AsyncInitialization.EnsureInitializedAsync(new List<IIngredientsRepository>() { _ingredientsRepository });
                 foreach (var recipe in list)
                 {
                     recipes.Add(new Recipe(recipe.Name, recipe.Description, _ingredientsRepository.GetIngredients(recipe.Ingredients),

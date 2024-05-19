@@ -12,13 +12,15 @@ namespace PromocyjnePrzepisy.HttpServices
         private readonly string recipesApiURL = "api/recipes/";
         private readonly string ingredientsApiURL = "api/ingredients/";
         private readonly string productsApiURL = "api/products/";
-        private readonly string reportsApiURL = "api/reports";
+        private readonly string reportsApiURL = "api/reports/";
+        private readonly string leafletsApiURL = "api/leaflets/";
         public HttpService()
         {
         }
-        public async Task<List<ProductDTO>> GetProductsAsync()
+        public async Task<List<ProductDTO>?> GetProductsAsync()
         {
-            List<ProductDTO> productDTOs = new List<ProductDTO>();
+
+            List<ProductDTO>? productDTOs = new List<ProductDTO>();
             string responseBody = "";
             try
             {
@@ -27,12 +29,13 @@ namespace PromocyjnePrzepisy.HttpServices
                 responseBody = await response.Content.ReadAsStringAsync();
             }
             catch (Exception ex) { Debug.WriteLine(ex); }
-            productDTOs = JsonSerializer.Deserialize<List<ProductDTO>>(responseBody);
+            if (responseBody is null) return null;
+            productDTOs = JsonSerializer.Deserialize<List<ProductDTO>?>(responseBody);
             return productDTOs;
         }
-        public async Task<List<IngredientDTO>> GetIngredientsAsync()
+        public async Task<List<IngredientDTO>?> GetIngredientsAsync()
         {
-            List<IngredientDTO> ingredientDTOs = new List<IngredientDTO>();
+            List<IngredientDTO>? ingredientDTOs = new List<IngredientDTO>();
             try
             {
                 HttpResponseMessage response = await _httpClient.GetAsync(baseAddress + ingredientsApiURL).ConfigureAwait(false);
@@ -43,9 +46,9 @@ namespace PromocyjnePrzepisy.HttpServices
             catch (Exception ex) { Debug.WriteLine(ex); }
             return ingredientDTOs;
         }
-        public async Task<List<RecipeDTO>> GetRecipesAsync()
+        public async Task<List<RecipeDTO>?> GetRecipesAsync()
         {
-            List<RecipeDTO> recipeDTOs = new List<RecipeDTO>();
+            List<RecipeDTO>? recipeDTOs = new List<RecipeDTO>();
             try
             {
                 HttpResponseMessage response = await _httpClient.GetAsync(baseAddress + recipesApiURL).ConfigureAwait(false);
@@ -59,7 +62,7 @@ namespace PromocyjnePrzepisy.HttpServices
             }
             return recipeDTOs;
         }
-        public async Task SendReportAsync(Report report)
+        public async Task SendReportAsync(Report? report)
         {
             try
             {
@@ -77,6 +80,30 @@ namespace PromocyjnePrzepisy.HttpServices
             {
                 Debug.WriteLine(ex);
             }
+        }
+        public async Task<byte[]?> GetLeafletImageAsync(int id)
+        {
+            byte[] responseBody = null;
+            try
+            {
+
+
+                HttpResponseMessage response = await _httpClient.GetAsync(baseAddress + leafletsApiURL + id).ConfigureAwait(false);
+                response.EnsureSuccessStatusCode();
+                responseBody = await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
+                //ImageSource imageSource = "";
+                //var stream = new MemoryStream();
+                //using (stream)
+                //{
+
+                //    imageSource = ImageSource.FromStream(() => stream);
+                //}
+                //imageResult = new Image() { Source = imageSource };
+
+            }
+            catch (Exception ex) { Debug.WriteLine(ex); }
+            if (responseBody == null) return null;
+            return responseBody;
         }
         private HttpMessageHandler GetHttpMessageHandler()
         {

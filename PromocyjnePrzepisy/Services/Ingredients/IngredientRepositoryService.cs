@@ -1,4 +1,5 @@
-﻿using PromocyjnePrzepisy.HttpServices;
+﻿using PromocyjnePrzepisy.Helpers;
+using PromocyjnePrzepisy.HttpServices;
 using PromocyjnePrzepisy.HttpServices.DTOs;
 using PromocyjnePrzepisy.Models;
 using PromocyjnePrzepisy.Services.Interfaces;
@@ -19,6 +20,7 @@ namespace PromocyjnePrzepisy.Services
 
         public async Task<IEnumerable<Ingredient>> GetIngredientsAsync()
         {
+            await AsyncInitialization.EnsureInitializedAsync([_productRepository]);
             List<IngredientDTO>? list = null;
             try
             {
@@ -28,6 +30,7 @@ namespace PromocyjnePrzepisy.Services
             var ingredients = new List<Ingredient>();
             if (list != null)
             {
+
                 foreach (var ingredient in list)
                 {
                     ingredients.Add(new Ingredient(ingredient.Name, _productRepository.GetProducts(ingredient.Name)));

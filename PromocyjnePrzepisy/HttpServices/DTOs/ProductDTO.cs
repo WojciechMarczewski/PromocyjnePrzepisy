@@ -5,14 +5,14 @@ namespace PromocyjnePrzepisy.HttpServices.DTOs
 {
     public class ProductDTO
     {
-        public ProductDTO(string name, string ingredientName, string discountStartDate, string discountEndDate, string market, string pdfFilePath)
+        public ProductDTO(string name, string ingredientName, string discountStartDate, string discountEndDate, string market, int leafletImageId)
         {
             Name = name;
             IngredientName = ingredientName;
             DiscountStartDate = discountStartDate;
             DiscountEndDate = discountEndDate;
             Market = market;
-            PdfFilePath = pdfFilePath;
+            LeafletImageId = leafletImageId;
         }
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -24,8 +24,8 @@ namespace PromocyjnePrzepisy.HttpServices.DTOs
         public string DiscountEndDate { get; set; }
         [JsonPropertyName("market")]
         public string Market { get; set; }
-        [JsonPropertyName("pdfFilePath")]
-        public string PdfFilePath { get; set; }
+        [JsonPropertyName("leafletImageId")]
+        public int LeafletImageId { get; set; }
         public Product ToProduct()
         {
             Discount discount = new Discount(DateOnly.Parse(DiscountStartDate, new CultureInfo("pl-PL")), DateOnly.Parse(DiscountEndDate, new CultureInfo("pl-PL")));
@@ -33,11 +33,11 @@ namespace PromocyjnePrzepisy.HttpServices.DTOs
             bool parseResult = Enum.TryParse(Market, out market);
             if (parseResult is true)
             {
-                return new Product(Name, IngredientName, discount, PdfFilePath, market);
+                return new Product(Name, IngredientName, discount, LeafletImageId, market);
             }
             else
             {
-                return new Product(Name, IngredientName, discount, PdfFilePath, Models.Market.Nieznany);
+                return new Product(Name, IngredientName, discount, LeafletImageId, Models.Market.Nieznany);
             }
         }
     }
