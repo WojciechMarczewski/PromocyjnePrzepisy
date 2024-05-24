@@ -1,4 +1,5 @@
-﻿using PromocyjnePrzepisy.HttpServices.DTOs;
+﻿using Json.More;
+using PromocyjnePrzepisy.HttpServices.DTOs;
 using PromocyjnePrzepisy.Models;
 using System.Diagnostics;
 using System.Text;
@@ -9,11 +10,12 @@ namespace PromocyjnePrzepisy.HttpServices
     {
         private readonly HttpClient _httpClient = new HttpClient();
         private readonly string baseAddress = "http://10.0.2.2:5163/";
-        private readonly string recipesApiURL = "api/recipes/";
+        private readonly string recipesApiURL = "api/Recipes/";
         private readonly string ingredientsApiURL = "api/ingredients/";
         private readonly string productsApiURL = "api/products/";
         private readonly string reportsApiURL = "api/reports/";
         private readonly string leafletsApiURL = "api/leaflets/";
+
         public HttpService()
         {
         }
@@ -48,13 +50,37 @@ namespace PromocyjnePrzepisy.HttpServices
         }
         public async Task<List<RecipeDTO>?> GetRecipesAsync()
         {
+            var option = new JsonSerializerOptions() { IncludeFields = true, Converters = { new JsonArrayTupleConverter() } };
             List<RecipeDTO>? recipeDTOs = new List<RecipeDTO>();
             try
             {
                 HttpResponseMessage response = await _httpClient.GetAsync(baseAddress + recipesApiURL).ConfigureAwait(false);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
-                recipeDTOs = JsonSerializer.Deserialize<List<RecipeDTO>>(responseBody);
+                Debug.WriteLine(responseBody);
+                recipeDTOs = JsonSerializer.Deserialize<List<RecipeDTO>>(responseBody, option);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return recipeDTOs;
+        }
+        public async Task<List<RecipeDTO>?> GetMoreRecipesAsync(string filter, int[] paging)
+        {
+            var option = new JsonSerializerOptions()
+            {
+                IncludeFields = true
+            };
+            List<RecipeDTO>? recipeDTOs = new List<RecipeDTO>();
+            try
+            {
+                string address = $"{baseAddress}{recipesApiURL}{filter}?&page={paging[0]}&pageCount={paging[1]}";
+                HttpResponseMessage response = await _httpClient.GetAsync(address);
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                recipeDTOs = JsonSerializer.Deserialize<List<RecipeDTO>>(responseBody, option);
+
             }
             catch (Exception ex)
             {

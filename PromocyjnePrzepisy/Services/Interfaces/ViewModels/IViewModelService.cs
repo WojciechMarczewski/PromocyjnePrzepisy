@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using PromocyjnePrzepisy.Models;
+using System.Collections.ObjectModel;
 
 namespace PromocyjnePrzepisy.Services.Interfaces
 {
@@ -6,5 +7,6 @@ namespace PromocyjnePrzepisy.Services.Interfaces
     {
         public ObservableCollection<T> PopulateList();
         public Task<ObservableCollection<T>> PopulateListAsync();
+        public Task<ObservableCollection<T>> GetNewObjectsAsync(EatingStyle eatingStyle);
     }
 }

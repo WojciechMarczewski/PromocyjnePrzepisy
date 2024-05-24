@@ -9,9 +9,9 @@ namespace PromocyjnePrzepisy.Services
         {
             if (recipe.Ingredients.Count == 0) throw new ArgumentException("Recipe has no ingredients");
             int count = 0;
-            foreach (Ingredient ing in recipe.Ingredients)
+            foreach (IngredientAmount ingAmnt in recipe.Ingredients)
             {
-                if (ing.HasDiscounts) count++;
+                if (ingAmnt.Ingredient.HasDiscounts) count++;
             }
             return count;
         }

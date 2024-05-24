@@ -10,22 +10,30 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
     <ContentPage.Resources>
         <c:ExpandedToRotationConverter x:Key="RotationCoverter" />
     </ContentPage.Resources>
-    <VerticalStackLayout x:DataType="vm:RecipePageViewModel">
-        <v:TitleBarView x:Name="TitleBarView"></v:TitleBarView>
-        <Grid>
+    <ScrollView >
+    <Grid x:DataType="vm:RecipePageViewModel">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition  Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <VerticalStackLayout Grid.Row="0">
+            <v:TitleBarView  x:Name="TitleBarView"></v:TitleBarView>
+        <Grid Grid.Row="1">
             <Image HeightRequest="150"  Aspect="AspectFill" 
                    Source="{Binding Image, Mode=OneWay, Converter={toolkit:ByteArrayToImageSourceConverter}}">
             </Image>
             <Label Text="{Binding RecipeTitle}" Style="{StaticResource RecipeNameStyle}" VerticalOptions="End" LineBreakMode="WordWrap"/>
         </Grid>
         <Label Text="Składniki:" Style="{StaticResource RecipeInfoLabel}"/>
-        <!--Itemssouce to set in future-->
-        <CollectionView ItemsSource="{Binding Ingredients}" Margin="10, 5, 10, 5" >
+        </VerticalStackLayout>
+        <CollectionView ItemsSource="{Binding Ingredients}" Margin="10, 5, 10, 5" Grid.Row="1">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout VerticalItemSpacing="2" Orientation="Vertical"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="vm:IngredientViewModel">
+                    
                     <Border StrokeShape="RoundRectangle 5" BackgroundColor="White" StrokeThickness="0.2">
                         <toolkit:Expander x:Name="Exp" Grid.Row="1" Grid.ColumnSpan="2">
                             <toolkit:Expander.Header>
@@ -39,8 +47,14 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                                         <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <Label Text="{Binding Name}" HorizontalOptions="Start" VerticalOptions="Center" Margin="10, 0, 0, 0" Grid.Column="0" FontSize="15" FontAttributes="Bold"/>
-                                    <Label Text="%" TextColor="OrangeRed" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Margin="10, 0, 10, 0" Grid.RowSpan="2" IsVisible="{Binding HasDiscounts}"/>
+                                    <HorizontalStackLayout Margin="10, 0, 0, 0" Grid.Column="0" Spacing="2">
+                                        
+                                        <Label Text="{Binding Name}" HorizontalOptions="Start" VerticalOptions="Start"  FontSize="15" FontAttributes="Bold" LineBreakMode="WordWrap" MaximumWidthRequest="200"/>
+                                            <Label Text="{Binding Amount}" HorizontalOptions="End" VerticalOptions="Start"     FontSize="15" FontAttributes="Bold" LineBreakMode="WordWrap" MaximumWidthRequest="100"/>
+                                            <Label Text="%" TextColor="OrangeRed"  VerticalOptions="Start" HorizontalOptions="End" Margin="10, 0, 10, 0" IsVisible="{Binding HasDiscounts}"/>
+                                        </HorizontalStackLayout>
+
+                                    
                                     <Image Grid.Column="2" Margin="5" HorizontalOptions="End" 
                                            HeightRequest="16" Rotation="{Binding Source={x:Reference Exp}, Path=IsExpanded, Converter={StaticResource RotationCoverter}}" IsVisible="{Binding HasDiscounts}">
                                         <Image.Source>
@@ -94,6 +108,7 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                                             </Border>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
+                                        
                                 </CollectionView>
                                 <!--</Grid>-->
                             </toolkit:Expander.Content>
@@ -102,12 +117,23 @@ Title="RecipePage" Background="{StaticResource BackgroundBrush}"
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Text="Przepis:" Style="{StaticResource RecipeInfoLabel}"/>
-        <Border Margin="10,0,10,0" StrokeThickness="0.2" StrokeShape="RoundRectangle 5" BackgroundColor="{StaticResource  White}" >
+       
+        <Grid Grid.Row="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        <Label Text="Przepis:" Style="{StaticResource RecipeInfoLabel}" Grid.Row="0"/>
+            <ScrollView Grid.Row="1" >
+                <Border Margin="10,0,10,0" StrokeThickness="0.2" StrokeShape="RoundRectangle 5" BackgroundColor="{StaticResource  White}" >
           
             <Label Text="{Binding RecipeDescription}"  
                VerticalOptions="FillAndExpand" Margin="5" />
+            
         </Border>
+            </ScrollView>
+        </Grid>
        
-    </VerticalStackLayout>
+    </Grid>
+    </ScrollView>
 </ContentPage>

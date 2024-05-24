@@ -13,7 +13,7 @@ namespace PromocyjnePrzepisy.ViewModels
         public List<IngredientViewModel> Ingredients { get; }
         public byte[] Image { get { return _recipeViewModel.Image; } }
         public string RecipeDescription { get { return _recipeViewModel.RecipeDescription; } }
-        private List<Ingredient> ingredients { get { return _recipeViewModel.GetRecipeIngredients(); } }
+        private List<IngredientAmount> ingredients { get { return _recipeViewModel.GetRecipeIngredients(); } }
         private List<IngredientViewModel> CreateIngredientViewModels()
         {
             List<IngredientViewModel> viewModels = new List<IngredientViewModel>();

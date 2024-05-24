@@ -10,8 +10,9 @@ namespace PromocyjnePrzepisy.ViewModels
         public string DiscountCountEnding { get { return _recipeProcessingService.GetProductCountEnding(DiscountsCount); } }
         private IRecipeProcessingService _recipeProcessingService = recipeProcessingService;
         private Recipe _recipe = recipe;
-        public List<Ingredient> GetRecipeIngredients()
+        public List<IngredientAmount> GetRecipeIngredients()
         {
+
             return _recipe.Ingredients;
         }
         public string RecipeDescription { get { return _recipe.Description; } }

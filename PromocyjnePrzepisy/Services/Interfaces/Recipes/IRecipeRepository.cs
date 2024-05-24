@@ -6,5 +6,6 @@ namespace PromocyjnePrzepisy.Services.Interfaces
     {
         public List<Recipe> GetRecipes();
         Task Init();
+        public Task<List<Recipe>> GetNewRecipesAsync(EatingStyle filter);
     }
 }

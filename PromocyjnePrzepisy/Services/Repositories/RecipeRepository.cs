@@ -22,6 +22,41 @@ namespace PromocyjnePrzepisy.Services.Repositories
         {
             var list = await _recipeRepositoryService.GetRecipesAsync();
             _recipes.AddRange(list);
+            PagingHelper.SetPagingCountersOnStart(list.ToList());
+        }
+
+        public async Task<List<Recipe>> GetNewRecipesAsync(EatingStyle filter)
+        {
+            List<Recipe> recipeList = new List<Recipe>();
+            bool recipesAdded = false;
+            if (filter == EatingStyle.MeatEater)
+            {
+                var awaitedList = await _recipeRepositoryService.GetNewRecipesAsync(filter.ToString(), PagingHelper.GetNextMeatPageValue());
+                recipeList.AddRange(awaitedList);
+                recipesAdded = true;
+            }
+            if (filter == EatingStyle.Vegan && !recipesAdded)
+            {
+                var awaitedList = await _recipeRepositoryService.GetNewRecipesAsync(filter.ToString(), PagingHelper.GetNextVeganPageValue());
+                recipeList.AddRange(awaitedList);
+                recipesAdded = true;
+            }
+            if (filter == EatingStyle.Vegetarian && !recipesAdded)
+            {
+                var awaitedList = await _recipeRepositoryService.GetNewRecipesAsync(filter.ToString(), PagingHelper.GetNextVegetarianPageValue());
+                recipeList.AddRange(awaitedList);
+                recipesAdded = true;
+            }
+            if (filter == EatingStyle.None && !recipesAdded)
+            {
+                var awaitedList = await _recipeRepositoryService.GetNewRecipesAsync(filter.ToString(), PagingHelper.GetNextGeneralPageValue());
+                recipeList.AddRange(awaitedList);
+
+            }
+
+
+            _recipes.AddRange(recipeList);
+            return recipeList;
         }
     }
 }

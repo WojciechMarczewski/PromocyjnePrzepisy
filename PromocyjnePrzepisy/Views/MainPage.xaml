@@ -39,7 +39,7 @@
             </ScrollView>
             <ActivityIndicator x:Name="LoadingIndicator" IsRunning="True" Grid.RowSpan="2" Grid.ColumnSpan="2" IsVisible="True" ScaleX="0.5" ScaleY="0.5"/>
             <CollectionView x:Name="RecipeCollection" Grid.Row="1" ItemsSource="{Binding RecipeCollection}" VerticalScrollBarVisibility="Always" 
-                             RemainingItemsThreshold="9" x:DataType="vm:MainViewModel" IsVisible="False">
+                             RemainingItemsThreshold="9" x:DataType="vm:MainViewModel" IsVisible="False" RemainingItemsThresholdReachedCommand="{Binding CollectionRemainingItemsThresholdReachedCommand}" >
                 <CollectionView.EmptyView>
                     <ContentView>
                         <StackLayout>

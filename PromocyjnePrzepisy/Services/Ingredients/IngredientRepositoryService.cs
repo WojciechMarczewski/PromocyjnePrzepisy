@@ -20,7 +20,7 @@ namespace PromocyjnePrzepisy.Services
 
         public async Task<IEnumerable<Ingredient>> GetIngredientsAsync()
         {
-            await AsyncInitialization.EnsureInitializedAsync([_productRepository]);
+            await AsyncInitialization.EnsureInitializedAsync([_productRepository]).ConfigureAwait(false);
             List<IngredientDTO>? list = null;
             try
             {

@@ -1,4 +1,5 @@
 ﻿using PromocyjnePrzepisy.DB;
+using PromocyjnePrzepisy.Models;
 using PromocyjnePrzepisy.Services.Interfaces;
 using PromocyjnePrzepisy.ViewModels;
 using System.Collections.ObjectModel;
@@ -39,6 +40,12 @@ namespace PromocyjnePrzepisy.Services
         }
 
         public Task<ObservableCollection<ProductViewModel>> PopulateListAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Task<ObservableCollection<ProductViewModel>> GetNewObjectsAsync(EatingStyle eatingStyle)
         {
             throw new NotImplementedException();
         }

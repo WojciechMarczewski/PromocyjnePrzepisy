@@ -5,6 +5,7 @@ using PromocyjnePrzepisy.Helpers;
 using PromocyjnePrzepisy.Models;
 using PromocyjnePrzepisy.Services.Interfaces;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 namespace PromocyjnePrzepisy.ViewModels
 {
     public partial class MainViewModel : BaseViewModel
@@ -12,6 +13,7 @@ namespace PromocyjnePrzepisy.ViewModels
         private ObservableCollection<RecipeViewModel> _allRecipes { get; set; } = new ObservableCollection<RecipeViewModel>();
         private readonly IViewModelService<RecipeViewModel> _viewModelService;
         public ObservableCollection<RecipeViewModel> RecipeCollection { get; set; } = new ObservableCollection<RecipeViewModel>();
+        private EatingStyle currentPagingFilter { get; set; } = EatingStyle.None;
         public MainViewModel(IViewModelService<RecipeViewModel> viewModelService)
         {
             _viewModelService = viewModelService;
@@ -31,6 +33,25 @@ namespace PromocyjnePrzepisy.ViewModels
         {
             RecipeCollection.Clear();
             RecipeCollection.ReplaceWith<RecipeViewModel>(_allRecipes);
+            currentPagingFilter = EatingStyle.None;
+        }
+        [RelayCommand]
+        public async Task OnCollectionRemainingItemsThresholdReached()
+        {
+            try
+            {
+                var list = await _viewModelService.GetNewObjectsAsync(currentPagingFilter);
+                foreach (var element in list)
+                {
+                    _allRecipes.Add(element);
+                    RecipeCollection.Add(element);
+                }
+                OnPropertyChanged(nameof(RecipeCollection));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
         private Task FillRecipesFilteredByMarket(Market market)
         {
@@ -39,10 +60,10 @@ namespace PromocyjnePrzepisy.ViewModels
             {
                 var ingredientsList = recipe.GetRecipeIngredients();
                 bool recipeAdded = false;
-                foreach (Ingredient ingredient in ingredientsList)
+                foreach (IngredientAmount ingredientAmount in ingredientsList)
                 {
-                    if (ingredient.Products.Count == 0) break;
-                    var productsList = ingredient.Products;
+                    if (ingredientAmount.Ingredient.Products.Count == 0) break;
+                    var productsList = ingredientAmount.Ingredient.Products;
                     foreach (Product product in productsList)
                     {
                         if (product.Market == market) RecipeCollection.Add(recipe);
@@ -64,12 +85,20 @@ namespace PromocyjnePrzepisy.ViewModels
                     RecipeCollection.Add(recipe);
                 }
             }
+            currentPagingFilter = eatingStyle;
             return Task.CompletedTask;
         }
         public async Task FillRecipes()
         {
-            await AsyncInitialization.EnsureInitializedAsync();
-            _allRecipes = await _viewModelService.PopulateListAsync();
+            try
+            {
+                await AsyncInitialization.EnsureInitializedAsync();
+                _allRecipes = await _viewModelService.PopulateListAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
             _allRecipes = _allRecipes.OrderByDescending(x => x.DiscountsCount).ToObservableCollection();
             RecipeCollection = new ObservableCollection<RecipeViewModel>(_allRecipes);
             RefreshCollection();
@@ -82,7 +111,6 @@ namespace PromocyjnePrzepisy.ViewModels
         //Fix for empty image on mainpage after page navigation
         public void RefreshImagesOnAppearing()
         {
-
             foreach (var recipe in RecipeCollection)
             {
                 recipe.OnImageRefresh();

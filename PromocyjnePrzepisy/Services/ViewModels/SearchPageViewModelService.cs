@@ -1,4 +1,5 @@
-﻿using PromocyjnePrzepisy.Services.Interfaces;
+﻿using PromocyjnePrzepisy.Models;
+using PromocyjnePrzepisy.Services.Interfaces;
 using PromocyjnePrzepisy.ViewModels;
 using System.Collections.ObjectModel;
 
@@ -30,6 +31,13 @@ namespace PromocyjnePrzepisy.Services
 
             });
             return productViewModels;
+        }
+
+
+
+        public Task<ObservableCollection<ProductViewModel>> GetNewObjectsAsync(EatingStyle eatingStyle)
+        {
+            throw new NotImplementedException();
         }
 
         public SearchPageViewModelService(IProductRepository productRepository)
