@@ -93,7 +93,7 @@ Dzień - Czas trwania - Przedział godzinowy
 * 31.05.2024 - 4h - 20:30 - 00:30
   
 
-# Plan godzinowy na czerwiec (80 godzin)
+# Plan godzinowy na czerwiec (90 godzin)
 Dzień - Czas trwania - Przedział godzinowy
 * 01.06.2024 - 6h - 10:00 - 16:00
 * 02.06.2024 - 6h - 10:00 - 16:00
